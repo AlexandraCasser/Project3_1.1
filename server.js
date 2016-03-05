@@ -5,6 +5,7 @@ var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var morgan = require('morgan');
 var passport = require('passport');
+var passportLocal = require('passport-local');
 var session = require('express-session');
 
 
@@ -15,7 +16,7 @@ var mongoURI = process.env.MONGOLAB_URI || 'mongodb://localhost/wine_not';
 
 
 //pass port config load
-// require('./config/passport')(passport);
+require('./config/passport')(passport);
 
 
 //middleware
