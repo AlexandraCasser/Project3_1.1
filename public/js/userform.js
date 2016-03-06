@@ -5,6 +5,7 @@ app.controller('FormController',['$http', '$scope', function($http,$scope){
 	this.name = null;
 	this.password = null;
 
+
 	this.addUser = function() {
 		console.log('WORKING');
 		$http({
@@ -48,12 +49,16 @@ app.directive('userForm', function(){
 });
 
 
-app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProivder){
-	$locationProivder.html5Mode({enable:true});
-	$routeProvider.when('/users', {
-		templateUrl: 'partials/userpage.html',
-		controller: 'UserController', //<<<<<Guess work
-		controllerAs: 'userCtrl'
+app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+	$locationProvider.html5Mode({ enabled: true});
+	$routeProvider.when('/', {
+		templateUrl: 'partials/userform.html',
+		controller: 'FormController', //<<<<<Guess work
+		controllerAs: 'formCtrl'
+	}).when('/user', {
+		templateUrl: 'partials/fakeuserpage.html',
+		controller: 'FormController', //<<<<<Guess work
+		controllerAs: 'formCtrl'
 	}).otherwise({
 		redirectTo: '/'
 	});
