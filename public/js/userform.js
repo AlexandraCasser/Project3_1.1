@@ -2,6 +2,8 @@ var app = angular.module('user-form', []);
 
 app.controller('FormController',['$http', '$scope', function($http,$scope){
 	var controller = this;
+	this.name = null;
+	this.password = null;
 
 	this.addUser = function() {
 		$http({
