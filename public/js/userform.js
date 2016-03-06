@@ -19,14 +19,39 @@ app.controller('FormController',['$http', '$scope', function($http,$scope){
 		},
 		function(err){
 			console.log(err);
-		})
-	}
+		});
+	};
+
+	this.loginUser = function() {
+		console.log('WORKING!!!');
+		$http({
+			method: 'GET',
+			url: '/users/login',
+			data: this
+		}).then(function(response){
+			console.log(response.data);
+			console.log($scope);
+		}, 
+		function(err){
+			console.log(err);
+		});
+	};
 }]);
 
 app.directive('signupForm', function(){
 	return {
 		restrict: 'E',
 		templateUrl: 'partials/userform.html',
+		controller: 'FormController',
+		controllerAs: 'formCtrl'
+	}
+});
+
+
+app.directive('loginForm', function(){
+	return {
+		restrict: 'E',
+		templateUrl: 'partials/userloginform.html',
 		controller: 'FormController',
 		controllerAs: 'formCtrl'
 	}
