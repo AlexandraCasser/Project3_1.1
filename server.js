@@ -7,7 +7,7 @@ var morgan = require('morgan');
 var passport = require('passport');
 var passportLocal = require('passport-local');
 var session = require('express-session');
-
+// var route = require('angular-route');
 
 //setting up port/DB, requiring mongoose
 var port = process.env.PORT || 3000;
@@ -36,7 +36,11 @@ var session = require('express-session');
 // app.use(passport.session());
 
 //controllers
+// var userController = require('./controllers/userController.js');
+// app.use('/user', userController);
 
+// var locationController = require('./controllers/locationController.js');
+// app.use('/location', locationController);
 
 //mongoose
 mongoose.connect(mongoURI);

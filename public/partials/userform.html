@@ -1,6 +1,13 @@
 <h1>Sign up and track your wine!</h1>
-<form ng-submit='formCtrl.addUser()'>
-	<input type='text' name='name' ng-model='formCtrl.name' placeholder='ENTER YOUR NAME'/><br/>
-	<input type='password' name='password' ng-model='formCtrl.password' placeholder='ENTER YOUR PASSWORD'/><br/>
-	<button>Signup</button>
+<form ng-submit='formCtrl.addUser()' action='/users/signup' id='userSignup'>
+	<input type='text' name='name' id='username' ng-model='formCtrl.name' placeholder='ENTER YOUR NAME'/><br/>
+	<input type='password' name='password' id='password' ng-model='formCtrl.password' placeholder='ENTER YOUR PASSWORD'/><br/>
+	<button><a href="/users">Signup</a></button>
+</form>
+
+<h1>Already a Wino? Log in here!</h1>
+<form ng-submit='formCtrl.loginUser()' action='/users/login' id='userLogin'>
+	<input type='text' name='name' ng-model='formCtrl.name' id='username' placeholder='ENTER YOUR NAME'/><br/>
+	<input type='password' name='password' ng-model='formCtrl.password' id='password' placeholder='ENTER YOUR PASSWORD'/><br/>
+	<button> <a href="/users">Login</a></button>
 </form>

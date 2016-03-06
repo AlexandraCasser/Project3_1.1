@@ -3,6 +3,7 @@
 	<meta charset="utf-8">
 	<title>Wine Not?</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js" charset="utf-8"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.min.js"></script>
     <script src="js/app.js" charset="utf-8"></script>
     <script src='js/userform.js'></script>
     <link rel="stylesheet" type="text/css" href="css/styles.css">
@@ -13,9 +14,9 @@
 
 	{{2+2}}
 
-	<signup-form></signup-form>
-	<login-form></login-form>
 
+	<user-form></user-form>
+	<div ng-view></div>
 
 </body>
 </html>
