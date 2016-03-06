@@ -53,11 +53,11 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
 	$locationProvider.html5Mode({ enabled: true});
 	$routeProvider.when('/', {
 		templateUrl: 'partials/userform.html',
-		controller: 'FormController', //<<<<<Guess work
+		controller: 'FormController', 
 		controllerAs: 'formCtrl'
 	}).when('/user', {
 		templateUrl: 'partials/fakeuserpage.html',
-		controller: 'FormController', //<<<<<Guess work
+		controller: 'FormController', 
 		controllerAs: 'formCtrl'
 	}).otherwise({
 		redirectTo: '/'
