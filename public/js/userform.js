@@ -18,11 +18,13 @@ app.controller('FormController',['$http', '$scope', function($http,$scope){
 			console.log(err);
 		})
 	}
-});
+}]);
 
 app.directive('signupForm', function(){
-	restrict: 'E',
-	templateUrl: 'partials/userform.html',
-	controller: 'FormController',
-	controllerAs: 'formCtrl'
+	return {
+		restrict: 'E',
+		templateUrl: 'partials/userform.html',
+		controller: 'FormController',
+		controllerAs: 'formCtrl'
+	}
 });
