@@ -6,6 +6,7 @@ app.controller('FormController',['$http', '$scope', function($http,$scope){
 	this.password = null;
 
 	this.addUser = function() {
+		console.log('WORKING');
 		$http({
 			method: 'POST',
 			url: '/users/signup',
@@ -13,6 +14,8 @@ app.controller('FormController',['$http', '$scope', function($http,$scope){
 		}).then(function(response){
 			console.log(resonse.data);
 			console.log($scope);
+			console.log(controller.name);
+			console.log(controller.password);
 		},
 		function(err){
 			console.log(err);
