@@ -1,5 +1,5 @@
-<form>
-	<input type='text' name='name' ng-model='formCtrl.name'>
-	<input type='text' name='password' ng-model='formCtrl.password'>
+<form ng-submit='formCtrl.addUser()'>
+	<input type='text' name='name' ng-model='formCtrl.name'/>
+	<input type='text' name='password' ng-model='formCtrl.password'/>
 	<button>Submit</button>
 </form>
