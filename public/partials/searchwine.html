@@ -1,0 +1,15 @@
+<div id="wine-search-wrapper" ng-controller="WineController as wineCtrl">
+		<form ng-submit="wineCtrl.searchWine()">
+		  <p>Search wine by name:</p>
+		  <input type="text" name="name" placeholder="ie. Sauvignon 2013, Mondavi Merlot, etc" ng-model="wineCtrl.searchdata.input">
+		  <button>Search</button>
+		</form>
+<!-- 
+		This is route params: {{wineCtrl.id}} -->
+
+	  <ul>
+	  	<li id="wineresults" ng-repeat="wine in wineCtrl.wineResults track by $index">{{wine.Name}}
+	  		<div id="add-to-location">Add To Collection</div>
+	  	</li>
+	  </ul>
+</div>
