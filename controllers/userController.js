@@ -69,17 +69,17 @@ router.post('/signup', passport.authenticate('local-signup', {
 
 //login
 router.post('/login', passport.authenticate('local-login',{
-    failureRedirect: '/'}), function(req,res){
+    failureRedirect: '/TESTPAGE'}), function(req,res){
     console.log('LOGGGED IN, YA');
     res.send(req.user);
 });
 
 //Post new user
-router.post('/', passport.authenticate('local-signup', {
-    failureRedirect : '/users' // redirect to the signup page if error
-			}), function(req, res) {
-    	res.redirect('/users/' + req.user.id);  //from passport.js
-});
+// router.post('/', passport.authenticate('local-signup', {
+//     failureRedirect : '/users' // redirect to the signup page if error
+// 			}), function(req, res) {
+//     	res.redirect('/users/' + req.user.id);  //from passport.js
+// });
 
 //search results
 router.post('/search', function(req, res){

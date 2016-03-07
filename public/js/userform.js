@@ -42,12 +42,17 @@ app.controller('FormController',['$http', '$scope', '$location', '$rootScope', '
 		var uname = $scope.username;
 		var pword = $scope.password;
 		console.log('NAME ' + this.username + ' PASSWORD ' +  this.password);
-		$http({
-			method: 'POST',
-			url: '/user/login',
-			data: this
-		}).then(function(response){
+		$http.post('/user/login', {username: uname, password : pword}).then(function(response){
+			
 			console.log(response.data); //looking for req.user.id here? We need the server to auth and then we need to grab this somehow
+			var userID = response.data._id;
+			// console.log(controller)
+			//This will now post to the user ID
+			$location.path('/user/' + response.data._id); //will change the URL hash value to to /root/user ... same as window.location.hash = '#/user' ... no hash needed, b/c 'path' automatically knows we're working with angular	
+			
+			$http.get("/user/" + userID).then(function(response){
+            console.log(response);
+       })
 		},
 		function(err){
 			console.log(err);
@@ -105,20 +110,21 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
 		templateUrl: 'partials/userloginform.html',
 		controller: 'FormController', 
 		controllerAs: 'formCtrl'
-	}).when('/user', {
-		resolve: {
-			'check' : function($location, $rootScope) {
-				console.log('RESOLVE WORKING');
-			// 	if ($rootScope.loggedIn) {
-			// 		$location.path('/user');
-			// 	} else {
-			// 		$location.path('/');
-			// 	}
-			}
-		},
-		templateUrl: 'partials/main.html',
-		controller: 'FormController', 
-		controllerAs: 'formCtrl'
+// 	}).
+// when('/user', {
+// 		resolve: {
+// 			'check' : function($location, $rootScope) {
+// 				console.log('RESOLVE WORKING');
+// 			// 	if ($rootScope.loggedIn) {
+// 			// 		$location.path('/user');
+// 			// 	} else {
+// 			// 		$location.path('/');
+// 			// 	}
+// 			}
+// 		},
+// 		templateUrl: 'partials/main.html',
+// 		controller: 'FormController', 
+// 		controllerAs: 'formCtrl'
 	}).otherwise({
 		redirectTo: '/'
 	});
