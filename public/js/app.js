@@ -1,4 +1,5 @@
-var app = angular.module("wineNot", ["ngRoute"]);
+
+var app = angular.module("wineNot", ["ngRoute", "user-form"]);
 
 //this is the mainController
 app.controller("MainController", ['$http', function($http){
@@ -49,3 +50,4 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
             controllerAs: 'wineCtrl' // alias for WineController (like ng-controller="Ctrl1 as ctrl")
         })
 }]);
+
