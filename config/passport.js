@@ -35,7 +35,7 @@ module.exports = function(passport){
 	//===========================
      passport.use('local-signup', new LocalStrategy({
         // by default, local strategy uses username and password, we will override with email
-        usernameField : 'email',
+        usernameField : 'username',
         passwordField : 'password',
         passReqToCallback : true // allows us to pass back the entire request to the callback
     },
@@ -48,7 +48,7 @@ module.exports = function(passport){
         // find a user whose email is the same as the forms email
         // we are checking to see if the user trying to login already exists
         //REMOVED LOCAL from local.email
-        User.findOne({ 'email' :  email }, function(err, user) {
+        User.findOne({ 'username' :  username }, function(err, user) {
             // if there are any errors, return the error
             if (err)
                 return done(err);
@@ -66,7 +66,7 @@ module.exports = function(passport){
                 // removed local because userModel doesn't have 'local'
                 console.log('REQ.BODY WITHIN LOCAL SIGNUP: ', req.body);
                 newUser.username = req.body.username;
-                newUser.email    = email;
+                // newUser.email    = email;
                 newUser.password = newUser.generateHash(password);
 
                 // save the user
@@ -92,7 +92,7 @@ module.exports = function(passport){
 
     passport.use('local-login', new LocalStrategy({
         // by default, local strategy uses username and password, we will override with email
-        usernameField : 'email',
+        usernameField : 'username',
         passwordField : 'password',
         passReqToCallback : true // allows us to pass back the entire request to the callback
     },
@@ -100,7 +100,7 @@ module.exports = function(passport){
 
         // find a user whose email is the same as the forms email
         // we are checking to see if the user trying to login already exists
-        User.findOne({ 'email' :  email }, function(err, user) {
+        User.findOne({ 'username' :  username }, function(err, user) {
             // if there are any errors, return the error before anything else
             if (err)
                 return done(err);

@@ -2,18 +2,11 @@
 	<h1>Sign up and track your wine!</h1>
 	<form id='userSignup'>
 		<h2>Name:</h2><br/>
-		<input type='text' ng-model='signupName' id='username' placeholder='ENTER YOUR NAME'/>
-		<h2>PASSWORD:</h2>
-		<input type='password' ng-model='signupPassword' id='password' placeholder='ENTER YOUR PASSWORD'/><br/>
-		<button ng-click='addUser()'>Signup</button>
-	</form>
-
-	<h1>Already a Wino? Log in here!</h1>
-	<form id='userLogin'>
-		<h2>NAME:</h2>
-		<input type='text' ng-model='username' id='username' placeholder='ENTER YOUR NAME'/><br/>
+		<input type='text' ng-model='username' id='username' placeholder='ENTER YOUR NAME'/>
 		<h2>PASSWORD:</h2>
 		<input type='password' ng-model='password' id='password' placeholder='ENTER YOUR PASSWORD'/><br/>
-		<button ng-click='loginUser()'>Login</button>
+		<button ng-click='addUser()'>Signup</button>
 	</form>
+<h1><a href="/login">Already a Wino? Log in here!</a></h1>
+
 </div>

@@ -24,20 +24,20 @@ app.use(express.static('public'))
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
-app.use(methodOverride('_method'));
+// app.use(methodOverride('_method'));
 
 //passport middleware
 var passport = require('passport');
 
 var session = require('express-session');
 
-// app.use(session({name: 'wine_not_auth_app', secret: 'wine'}));
-// app.use(passport.initialize());
-// app.use(passport.session());
+app.use(session({name: 'wine_not_auth_app', secret: 'wine'}));
+app.use(passport.initialize());
+app.use(passport.session());
 
 //controllers
-// var userController = require('./controllers/userController.js');
-// app.use('/user', userController);
+var userController = require('./controllers/fakeuserController.js');
+app.use('/user', userController);
 
 // var locationController = require('./controllers/locationController.js');
 // app.use('/location', locationController);

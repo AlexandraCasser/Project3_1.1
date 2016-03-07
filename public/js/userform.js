@@ -7,22 +7,22 @@ app.controller('FormController',['$http', '$scope', '$location', '$rootScope', f
 
 	$scope.addUser = function() {
 		console.log('WORKING');
-		this.signupName = $scope.signupName;
-		this.signupPassword = $scope.signupPassword;
-		console.log(this.signupName);
-		console.log(this.signupPassword);
+
+		console.log(this.username);
+		console.log(this.password);
 
 		$http({
 			method: 'POST',
-			url: '/user/',
+			url: '/user',
 			data: this
 		}).then(function(response){
-			console.log(resonse.data);
-			console.log($scope);
-			console.log(controller.name);
-			console.log(controller.password);
+			console.log(response);
+			// console.log($scope);
+			// console.log(controller.name);
+			// console.log(controller.password);
 		},
 		function(err){
+			alert('ERROR');
 			console.log(err);
 		});
 
@@ -52,7 +52,7 @@ app.controller('FormController',['$http', '$scope', '$location', '$rootScope', f
 			$location.path('/user/'); 	
 			$http({
 				method: 'GET',
-				url: '/user/' + req.user.id, //<<<<< or some sort of id ... 
+				url: '/user' + req.user.id, //<<<<< or some sort of id ... 
 				data: this
 			}).then(function(response){
 				console.log(response.data);
@@ -77,11 +77,24 @@ app.directive('userForm', function(){
 	}
 }); //<<<<<< END form directive
 
+app.directive('loginForm', function(){
+	return {
+		restrict: 'E',
+		templateUrl: 'partials/userloginform.html',
+		controller: 'FormController',
+		controllerAs: 'formCtrl'
+	}
+});
+
 
 app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 	$locationProvider.html5Mode({ enabled: true});
 	$routeProvider.when('/', {
 		templateUrl: 'partials/userform.html',
+		controller: 'FormController', 
+		controllerAs: 'formCtrl'
+	}).when('/login', {
+		templateUrl: 'partials/userloginform.html',
 		controller: 'FormController', 
 		controllerAs: 'formCtrl'
 	}).when('/user', {
@@ -109,12 +122,5 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
 ///OLD CODE
 ///////////
 
-// app.directive('loginForm', function(){
-// 	return {
-// 		restrict: 'E',
-// 		templateUrl: 'partials/userloginform.html',
-// 		controller: 'FormController',
-// 		controllerAs: 'formCtrl'
-// 	}
-// });
+
 
