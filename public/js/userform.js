@@ -1,39 +1,46 @@
 var app = angular.module('user-form', ['ngRoute']);
 
-app.controller('FormController',['$http', '$scope', '$location', '$rootScope', '$routeParams', function($http,$scope, $location, $rootScope, $routeParams){ //location changes the hash values in the url
+app.controller('FormController',['$http', '$scope', '$location', '$rootScope', '$routeParams', function($http, $scope, $location, $rootScope, $routeParams){ //location changes the hash values in the url
 	var controller = this;
-	this.name = null;
+	$rootScope.dudeName = "";
 	this.password = null;
 	this.id = $routeParams.id;
 
+	//this is for NEW SIGN UP USERS
 	$scope.addUser = function() {
-		var innerController = this.controller;
-		console.log('WORKING');
 		var uname = $scope.username;
 		var pword = $scope.password;
 		console.log('USER NAME ' + uname);
 		console.log('PASSWORD ' + pword);
-		// this.userID = "";
 
+		//POST THE USER INFO
 		$http.post('/user/signup', {username : uname, password : pword}).then(function(response){
 
 			var userID = response.data._id;
-
-
 			// console.log(controller)
 			//This will now post to the user ID
 			$location.path('/user/' + response.data._id); //will change the URL hash value to to /root/user ... same as window.location.hash = '#/user' ... no hash needed, b/c 'path' automatically knows we're working with angular	
-			
-			 $http.get("/user/" + userID).then(function(response){
-            console.log(response);
-        })
+
+				//once user is signed up, pull up user info immediately		
+			$http.get("/user/" + userID).then(function(response){
+	            console.log("This is the response.data.username ", response.data.username);
+	            console.log("This is the username through Scope", $scope.username);
+	            $rootScope.user = response.data;
+	            console.log("This is dude Name", $rootScope.dudeName)
+	           
+	        })
 		},
 		function(err){
-			alert('ERROR');
+			alert('ERROR: That Username is already taken');
 			console.log(err);
 		});
 
 	};
+
+
+
+	           	//broadcast 
+
 
 	$scope.loginUser = function() {
 		console.log('WORKING!!!');

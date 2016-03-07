@@ -2,25 +2,28 @@
 var app = angular.module("wineNot", ["ngRoute", "user-form"]);
 
 //this is the mainController
-app.controller("MainController", ['$scope', '$http', function($http, $scope){
-    this.name = "";
-    this.locations = ["Example: Home", "Example: Warehouse", "Example: Florida Home"];
-    var controller = this;
-    this.id = "";
+// app.controller("MainController", ['$scope', '$http', function($http, $scope){
+//     this.username = "";
+//     this.locations = ["Example: Home", "Example: Warehouse", "Example: Florida Home"];
+//     var controller = this;
+//     this.id = "";
 
-    // $scope.$on("userInfo", function(eventObj, data){
-    //     controller.id = data;
-    //     console.log("HEY OMG I GOT THE ID!!", data)
-    // })
+//     // $scope.$on("userInfo", function(eventObj, data){
+//     //     controller.id = data;
+//     //     console.log("HEY OMG I GOT THE ID!!", data)
+//     // })
 
-    var userObject = function(){
-        $http.get("/user/" + id)
-        .then(function(response){
-            console.log("This is the get /users/:id response", response)
-            controller.name = response;
-        })
-    }
-}]);
+//         //once user is signed up, pull up user info immediately     
+//     $http.get("/user/" + userID).then(function(response){
+//         console.log("This is the response.data.username ", response.data.username);
+//         console.log("This is the username through Scope", $scope.username);
+//         controller.username = response.data.username;
+//         console.log("This is dude Name", $rootScope.dudeName)
+       
+//     })
+//                 //broadcast 
+
+// }]);
 
 //this is the wineController
 // + makes query to wineAPI
@@ -56,8 +59,8 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
     $routeProvider.
         when('/', {
             templateUrl: 'partials/main.html',
-            controller: 'MainController',
-            controllerAs: 'mainCtrl'
+            controller: 'FormController',
+            controllerAs: 'formCtrl'
         }).
         //FIGURE OUT SEARCH ROUTE FOR USER ID
         when('/search', { //when http://localhost:3000/url
