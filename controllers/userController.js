@@ -69,7 +69,7 @@ router.post('/signup', passport.authenticate('local-signup', {
 
 //login
 router.post('/login', passport.authenticate('local-login',{
-    failureRedirect: '/'}), function(req,res){
+    failureRedirect: '/TESTPAGE'}), function(req,res){
     console.log('LOGGGED IN, YA');
     res.send(req.user);
 });
