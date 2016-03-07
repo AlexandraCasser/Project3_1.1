@@ -38,10 +38,6 @@ app.controller('FormController',['$http', '$scope', '$location', '$rootScope', '
 	};
 
 
-
-	           	//broadcast 
-
-
 	$scope.loginUser = function() {
 		console.log('WORKING!!!');
 	//need to run an ajax POST call to authenticate user name and password and have the server authenticate then
@@ -57,9 +53,11 @@ app.controller('FormController',['$http', '$scope', '$location', '$rootScope', '
 			//This will now post to the user ID
 			$location.path('/user/' + response.data._id); //will change the URL hash value to to /root/user ... same as window.location.hash = '#/user' ... no hash needed, b/c 'path' automatically knows we're working with angular	
 			
+			//once user is loggedin, pull up user info immediately		
 			$http.get("/user/" + userID).then(function(response){
-            console.log(response);
-       })
+
+	            $rootScope.user = response.data;
+	        })
 		},
 		function(err){
 			console.log(err);

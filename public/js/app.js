@@ -1,30 +1,6 @@
 
 var app = angular.module("wineNot", ["ngRoute", "user-form"]);
 
-//this is the mainController
-// app.controller("MainController", ['$scope', '$http', function($http, $scope){
-//     this.username = "";
-//     this.locations = ["Example: Home", "Example: Warehouse", "Example: Florida Home"];
-//     var controller = this;
-//     this.id = "";
-
-//     // $scope.$on("userInfo", function(eventObj, data){
-//     //     controller.id = data;
-//     //     console.log("HEY OMG I GOT THE ID!!", data)
-//     // })
-
-//         //once user is signed up, pull up user info immediately     
-//     $http.get("/user/" + userID).then(function(response){
-//         console.log("This is the response.data.username ", response.data.username);
-//         console.log("This is the username through Scope", $scope.username);
-//         controller.username = response.data.username;
-//         console.log("This is dude Name", $rootScope.dudeName)
-       
-//     })
-//                 //broadcast 
-
-// }]);
-
 //this is the wineController
 // + makes query to wineAPI
 // + saves into array??
