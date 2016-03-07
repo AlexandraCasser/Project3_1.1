@@ -22,13 +22,28 @@ var passport = require("passport");
 //     }
 // });
 
+router.get('/logout', function(req,res){
+    console.log("LOGGED OUT!");
+    req.logout();
+    res.redirect('/');
+});
+
+
 
 //Post new user
-router.post('/', passport.authenticate('local-signup', {
+router.post('/signup', passport.authenticate('local-signup', {
     failureRedirect : '/' // redirect to the signup page if error
 			}), function(req, res) {
         console.log('SIGNUP AUTHENTICATION WORKED');
-    	res.send(req.user);  //from passport.js
+    	// res.send(req.user);  //from passport.js
+});
+
+
+//login
+router.post('/login', passport.authenticate('local-login',{
+    failureRedirect: '/'}), function(req,res){
+    console.log('LOGGGED IN, YA');
+    // res.send(something);
 });
 
 // JSON

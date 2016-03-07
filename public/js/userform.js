@@ -13,7 +13,7 @@ app.controller('FormController',['$http', '$scope', '$location', '$rootScope', f
 
 		$http({
 			method: 'POST',
-			url: '/user',
+			url: '/user/signup',
 			data: this
 		}).then(function(response){
 			console.log(response);
@@ -49,7 +49,7 @@ app.controller('FormController',['$http', '$scope', '$location', '$rootScope', f
 
 		if ($scope.username == 'John' && $scope.password == 'John') { //need to change condition to if authenticated
 			$rootScope.loggedIn = true;
-			$location.path('/user/'); 	
+			$location.path('/user/login'); 	
 			$http({
 				method: 'GET',
 				url: '/user' + req.user.id, //<<<<< or some sort of id ... 
