@@ -1,6 +1,6 @@
 <main>
 <!-- JOHNS USER LOGIN FORM -->
-<div ng-if="!user" ng-controller='FormController as formCtrl'>
+<div id="user-sign-in" ng-if="!user" ng-controller='FormController as formCtrl'>
 	<h1>Sign up and track your wine!</h1>
 	<form id='userSignup'>
 		<h2>Name:</h2><br/>
@@ -9,9 +9,6 @@
 		<input type='password' ng-model='password' id='password' placeholder='ENTER YOUR PASSWORD'/><br/>
 		<button ng-click='addUser()'>Signup</button>
 	</form>
-
-	<h2>WELCOME BACK {{formCtrl.username}}</h2><br/>
-	<h2>WELCOME BACK {{user.username}}</h2><br/>
 <h1><a href="/user/login">Already a Wino? Log in here!</a></h1>
 
 </div>
