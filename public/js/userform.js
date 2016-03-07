@@ -1,23 +1,39 @@
 var app = angular.module('user-form', ['ngRoute']);
 
-app.controller('FormController',['$http', '$scope', '$location', '$rootScope', function($http,$scope, $location, $rootScope){ //location changes the hash values in the url
+app.controller('FormController',['$http', '$scope', '$location', '$rootScope', '$routeParams', function($http,$scope, $location, $rootScope, $routeParams){ //location changes the hash values in the url
 	var controller = this;
 	this.name = null;
 	this.password = null;
+	this.id = $routeParams.id;
 
 	$scope.addUser = function() {
+		var innerController = this.controller;
 		console.log('WORKING');
 		var uname = $scope.username;
 		var pword = $scope.password;
 		console.log('USER NAME ' + uname);
 		console.log('PASSWORD ' + pword);
+		// this.userID = "";
 
 		$http.post('/user/signup', {username : uname, password : pword}).then(function(response){
-			console.log(response);
-			$location.path('/user'); //will change the URL hash value to to /root/user ... same as window.location.hash = '#/user' ... no hash needed, b/c 'path' automatically knows we're working with angular	
-			// console.log($scope);
-			// console.log(controller.name);
-			// console.log(controller.password);
+
+			// innerController.userID = response.data._id;
+
+
+			// console.log(controller)
+			//This will now post to the user ID
+			$location.path('/user/' + response.data._id); //will change the URL hash value to to /root/user ... same as window.location.hash = '#/user' ... no hash needed, b/c 'path' automatically knows we're working with angular	
+			
+			//emit the response.data._id to MainController
+			$scope.emit("userInfo", response.data._id)
+						console.log("THIS IS THE USERID", response.data._id);
+			 $http.get("/user/" + response.data._id);
+        .then(function(response){
+            console.log("This is the get /users/:id response", response)
+            controller.name = response;
+        })
+    }
+
 		},
 		function(err){
 			alert('ERROR');
@@ -48,7 +64,7 @@ app.controller('FormController',['$http', '$scope', '$location', '$rootScope', f
 			$location.path('/user/login'); 	
 			$http({
 				method: 'GET',
-				url: '/user' + req.user.id, //<<<<< or some sort of id ... 
+				url: '/user/' + req.user.id, //or some sort of id ... 
 				data: this
 			}).then(function(response){
 				console.log(response.data);
@@ -62,7 +78,7 @@ app.controller('FormController',['$http', '$scope', '$location', '$rootScope', f
 		}
 	};
 
-}]); //<<<<<<END Form Controller
+}]); //END Form Controller
 
 app.directive('userForm', function(){
 	return {
@@ -71,7 +87,7 @@ app.directive('userForm', function(){
 		controller: 'FormController',
 		controllerAs: 'formCtrl'
 	}
-}); //<<<<<< END form directive
+}); //END form directive
 
 app.directive('loginForm', function(){
 	return {
@@ -85,11 +101,13 @@ app.directive('loginForm', function(){
 
 app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 	$locationProvider.html5Mode({ enabled: true});
-	$routeProvider.when('/', {
-		templateUrl: 'partials/userform.html',
-		controller: 'FormController', 
-		controllerAs: 'formCtrl'
-	}).when('/login', {
+	$routeProvider
+	// .when('/' + req.user.id , {
+	// 	templateUrl: 'partials/main.html',
+	// 	controller: 'FormController', 
+	// 	controllerAs: 'formCtrl'
+	// })
+.when('/user/login', {
 		templateUrl: 'partials/userloginform.html',
 		controller: 'FormController', 
 		controllerAs: 'formCtrl'
@@ -104,7 +122,7 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
 			// 	}
 			}
 		},
-		templateUrl: 'partials/fakeuserpage.html',
+		templateUrl: 'partials/main.html',
 		controller: 'FormController', 
 		controllerAs: 'formCtrl'
 	}).otherwise({

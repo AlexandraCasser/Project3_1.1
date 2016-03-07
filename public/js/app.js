@@ -2,9 +2,24 @@
 var app = angular.module("wineNot", ["ngRoute", "user-form"]);
 
 //this is the mainController
-app.controller("MainController", ['$http', function($http){
-    this.name = "Welcome back, USERNAME";
-    this.locations = ["Example: Home", "Example: Warehouse", "Example: Florida Home"]
+app.controller("MainController", ['$scope', '$http', function($http, $scope){
+    this.name = "";
+    this.locations = ["Example: Home", "Example: Warehouse", "Example: Florida Home"];
+    var controller = this;
+    this.id = "";
+
+    // $scope.$on("userInfo", function(eventObj, data){
+    //     controller.id = data;
+    //     console.log("HEY OMG I GOT THE ID!!", data)
+    // })
+
+    var userObject = function(){
+        $http.get("/user/" + id)
+        .then(function(response){
+            console.log("This is the get /users/:id response", response)
+            controller.name = response;
+        })
+    }
 }]);
 
 //this is the wineController
@@ -19,7 +34,7 @@ app.controller("WineController", ['$http', function($http){
     this.searchWine = function(){
        $http({
         method: 'POST',
-        url: '/search',
+        url: '/user/search',
         data: this.searchdata
        }).then(function(response){
             //returns input from searchbar
@@ -44,10 +59,16 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
             controller: 'MainController',
             controllerAs: 'mainCtrl'
         }).
+        //FIGURE OUT SEARCH ROUTE FOR USER ID
         when('/search', { //when http://localhost:3000/url
             templateUrl: '/partials/searchwine.html', // render http://localhost:3000/partials/searchwine.html
             controller: 'WineController', // attach controller WineController
             controllerAs: 'wineCtrl' // alias for WineController (like ng-controller="Ctrl1 as ctrl")
         })
+        .when('/user/:id', {
+            templateUrl: 'partials/main.html',
+            controller: 'FormController', 
+            controllerAs: 'formCtrl'
+    })
 }]);
 

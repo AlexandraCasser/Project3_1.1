@@ -36,7 +36,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //controllers
-var userController = require('./controllers/fakeuserController.js');
+var userController = require('./controllers/userController.js');
 app.use('/user', userController);
 
 // var locationController = require('./controllers/locationController.js');
