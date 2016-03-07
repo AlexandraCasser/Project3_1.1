@@ -1,0 +1,62 @@
+<main>
+	<h2>{{mainCtrl.name}}</h2><br/>
+	<section id="home-wrapper">
+		
+
+		<div id="locations-wrapper">
+			<div class="locations-div" ng-repeat="location in mainCtrl.locations">
+				<span class="location-name">{{location}}</span>
+				<!-- for every wine for this location, display wine, limit: 5? -->
+				<div class="wine-list">
+					<span>Wine 1</span>
+					<span class="wine-info-span"> + </span>
+					<span class="wine-info-span"> - </span>
+					<span class="wine-info-span"># available</span>
+				</div>
+				<div class="wine-list">
+					<span>Wine 2</span>
+					<span class="wine-info-span"> + </span>
+					<span class="wine-info-span"> - </span>
+					<span class="wine-info-span"># available</span>
+				</div>
+
+				<div class="wine-list">
+					<span>Wine 3</span>
+					<span class="wine-info-span"> + </span>
+					<span class="wine-info-span"> - </span>
+					<span class="wine-info-span"># available</span>
+				</div>
+
+				<div class="wine-list">
+					<span>Wine 4</span>
+					<span class="wine-info-span"> + </span>
+					<span class="wine-info-span"> - </span>
+					<span class="wine-info-span"># available</span>
+				</div>
+
+				<div class="wine-list">
+					<span>Wine 5</span>
+					<span class="wine-info-span"> + </span>
+					<span class="wine-info-span"> - </span>
+					<span class="wine-info-span"># available</span>
+				</div>
+
+				<div class="locations-button">
+					Add Wine
+				</div>
+
+				<div class="locations-button">
+					Edit Location
+				</div>
+			</div>
+
+				<div class="locations-div" id="add-location-div">
+					Add a New Location!
+				</div>
+		</div>
+
+		<div id="sidebar">
+			Notifications GO HERE
+		</div>
+	</section>
+</main>
