@@ -14,6 +14,7 @@ app.controller('FormController',['$http', '$scope', '$location', '$rootScope', f
 
 		$http.post('/user/signup', {username : uname, password : pword}).then(function(response){
 			console.log(response);
+			$location.path('/user'); //will change the URL hash value to to /root/user ... same as window.location.hash = '#/user' ... no hash needed, b/c 'path' automatically knows we're working with angular	
 			// console.log($scope);
 			// console.log(controller.name);
 			// console.log(controller.password);
@@ -22,8 +23,6 @@ app.controller('FormController',['$http', '$scope', '$location', '$rootScope', f
 			alert('ERROR');
 			console.log(err);
 		});
-
-		$location.path('/user'); //will change the URL hash value to to /root/user ... same as window.location.hash = '#/user' ... no hash needed, b/c 'path' automatically knows we're working with angular	
 	};
 
 	$scope.loginUser = function() {
@@ -98,11 +97,11 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
 		resolve: {
 			'check' : function($location, $rootScope) {
 				console.log('RESOLVE WORKING');
-				if ($rootScope.loggedIn) {
-					$location.path('/user');
-				} else {
-					$location.path('/');
-				}
+			// 	if ($rootScope.loggedIn) {
+			// 		$location.path('/user');
+			// 	} else {
+			// 		$location.path('/');
+			// 	}
 			}
 		},
 		templateUrl: 'partials/fakeuserpage.html',
