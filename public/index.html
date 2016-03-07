@@ -3,13 +3,26 @@
 	<meta charset="utf-8">
 	<title>Wine Not?</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js" charset="utf-8"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.min.js"></script>
     <script src="js/app.js" charset="utf-8"></script>
     <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <base href="/">
 </head>
 <body>
-	<h1>Hey Guys! This is the beginning of something AWESOME!</h1>
 
-	{{2+2}}
+	<header>
+		<nav>
+			<ul>
+				<li><a href="/">home</a>
+				<li><a href="/addlocation">location</a>
+				<li><a href="/search">search</a>
+			</ul>
+		</nav>
+	</header>
+	Angular test: {{2+2}}
+
+	<div ng-view></div>
 
 </body>
 </html>
+
