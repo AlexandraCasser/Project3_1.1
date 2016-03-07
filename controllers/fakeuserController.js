@@ -3,7 +3,8 @@ var router = express.Router();
 var User = require("../models/userSchema.js");
 // var Location = require("../models/locationsSchema.js");
 var passport = require("passport");
-
+var mongoose = require('mongoose');
+mongoose.set('debug', true);
 
 // //Get
 // router.get("/", function(req, res) {

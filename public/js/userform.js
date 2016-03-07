@@ -7,15 +7,12 @@ app.controller('FormController',['$http', '$scope', '$location', '$rootScope', f
 
 	$scope.addUser = function() {
 		console.log('WORKING');
+		var uname = $scope.username;
+		var pword = $scope.password;
+		console.log('USER NAME ' + uname);
+		console.log('PASSWORD ' + pword);
 
-		console.log(this.username);
-		console.log(this.password);
-
-		$http({
-			method: 'POST',
-			url: '/user/signup',
-			data: this
-		}).then(function(response){
+		$http.post('/user/signup', {username : uname, password : pword}).then(function(response){
 			console.log(response);
 			// console.log($scope);
 			// console.log(controller.name);
@@ -33,12 +30,12 @@ app.controller('FormController',['$http', '$scope', '$location', '$rootScope', f
 		console.log('WORKING!!!');
 	//need to run an ajax POST call to authenticate user name and password and have the server authenticate then
 	//$rooteScope is a super global variable ... attaches all of your properties to a global object
-		this.username = $scope.username;
-		this.password = $scope.password;
+		var uname = $scope.username;
+		var pword = $scope.password;
 		console.log('NAME ' + this.username + ' PASSWORD ' +  this.password);
 		// $http({
 		// 	method: 'POST',
-		// 	url: '/user/',
+		// 	url: '/user/login',
 		// 	data: this
 		// }).then(function(response){
 		// 	console.log(response.data); //looking for req.user.id here? We need the server to auth and then we need to grab this somehow

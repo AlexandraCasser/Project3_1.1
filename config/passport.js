@@ -40,7 +40,7 @@ module.exports = function(passport){
         passReqToCallback : true // allows us to pass back the entire request to the callback
     },
     function(req, email, password, done) {
-
+        console.log('Req.body within local signup: >>>>>>', req.body);
         // asynchronous
         // User.findOne wont fire unless data is sent back
         process.nextTick(function() {
@@ -64,7 +64,8 @@ module.exports = function(passport){
 
                 // set the user's local credentials
                 // removed local because userModel doesn't have 'local'
-                console.log('REQ.BODY WITHIN LOCAL SIGNUP: ', req.body);
+                console.log('REQ.BODY WITHIN LOCAL SIGNUP: >>>>>>>>>>>', req.body);
+                console.log('USERNAME IN REQ.BODY >>>>>>>>>>>>' + req.body.username)
                 newUser.username = req.body.username;
                 // newUser.email    = email;
                 newUser.password = newUser.generateHash(password);
