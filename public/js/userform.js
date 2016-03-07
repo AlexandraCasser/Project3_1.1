@@ -15,30 +15,23 @@ app.controller('FormController',['$http', '$scope', '$location', '$rootScope', '
 		console.log('PASSWORD ' + pword);
 		// this.userID = "";
 
-		$http.post('/user/signup', {username : uname, password : pword}).then(function(response){
+$http.post('/user/signup', {username : uname, password : pword}).then(function(response){
 
-			// innerController.userID = response.data._id;
+            var userID = response.data._id;
 
 
-			// console.log(controller)
-			//This will now post to the user ID
-			$location.path('/user/' + response.data._id); //will change the URL hash value to to /root/user ... same as window.location.hash = '#/user' ... no hash needed, b/c 'path' automatically knows we're working with angular	
-			
-			//emit the response.data._id to MainController
-			$scope.emit("userInfo", response.data._id)
-						console.log("THIS IS THE USERID", response.data._id);
-			 $http.get("/user/" + response.data._id);
-        .then(function(response){
-            console.log("This is the get /users/:id response", response)
-            controller.name = response;
+            // console.log(controller)
+            //This will now post to the user ID
+            $location.path('/user/' + response.data._id); //will change the URL hash value to to /root/user ... same as window.location.hash = '#/user' ... no hash needed, b/c 'path' automatically knows we're working with angular    
+            
+             $http.get("/user/" + userID).then(function(response){
+            console.log(response);
         })
-    }
-
-		},
-		function(err){
-			alert('ERROR');
-			console.log(err);
-		});
+        },
+        function(err){
+            alert('ERROR');
+            console.log(err);
+        });
 	};
 
 	$scope.loginUser = function() {
