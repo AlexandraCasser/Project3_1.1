@@ -36,7 +36,7 @@ router.post('/signup', passport.authenticate('local-signup', {
     failureRedirect : '/' // redirect to the signup page if error
 			}), function(req, res) {
         console.log('SIGNUP AUTHENTICATION WORKED');
-    	// res.send(req.user);  //from passport.js
+    	res.send(req.user);  //from passport.js
 });
 
 
@@ -44,7 +44,7 @@ router.post('/signup', passport.authenticate('local-signup', {
 router.post('/login', passport.authenticate('local-login',{
     failureRedirect: '/'}), function(req,res){
     console.log('LOGGGED IN, YA');
-    // res.send(something);
+    res.send(req.user);
 });
 
 // JSON

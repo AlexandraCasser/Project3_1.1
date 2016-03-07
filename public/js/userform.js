@@ -32,16 +32,16 @@ app.controller('FormController',['$http', '$scope', '$location', '$rootScope', f
 		var uname = $scope.username;
 		var pword = $scope.password;
 		console.log('NAME ' + this.username + ' PASSWORD ' +  this.password);
-		// $http({
-		// 	method: 'POST',
-		// 	url: '/user/login',
-		// 	data: this
-		// }).then(function(response){
-		// 	console.log(response.data); //looking for req.user.id here? We need the server to auth and then we need to grab this somehow
-		// },
-		// function(err){
-		// 	console.log(err);
-		// });
+		$http({
+			method: 'POST',
+			url: '/user/login',
+			data: this
+		}).then(function(response){
+			console.log(response.data); //looking for req.user.id here? We need the server to auth and then we need to grab this somehow
+		},
+		function(err){
+			console.log(err);
+		});
 
 		if ($scope.username == 'John' && $scope.password == 'John') { //need to change condition to if authenticated
 			$rootScope.loggedIn = true;
