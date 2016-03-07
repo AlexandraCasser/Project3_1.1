@@ -1,3 +1,232 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
 body {
-	background: papayawhip;
+	font-family: Arial, sans-serif;
+	height: 100%;
+	background: url("/images/winebackground.jpg");
+
+}
+/*****************/
+/* HEADER NAV BAR*/
+/*****************/
+
+header {
+/*	position: fixed;*/
+	width: 100%;
+	padding: 1em;
+	background: #3D8674;
+	box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+}
+
+header a {
+	text-decoration: none;
+	color: white;
+}
+h1{
+	font-size: 18px;
+	display: inline;
+}
+h3{
+	margin-top:2em;
+	text-align: center;
+}
+nav {
+
+	display: inline;
+}
+
+ul {
+	display: inline;
+	list-style-type: none
+}
+
+/* nav bar links*/
+li {
+	display: inline;
+	padding: 1em;
+	border-right: 1px solid black;
+}
+
+li:hover{
+	border-bottom: 2px solid white;
+	color: white;
+}
+
+/*****************/
+/* MAIN PAGE     */
+/*****************/
+main {
+	width: 90%;
+	margin: 0 auto;
+	vertical-align: top;
+}
+
+main h2 {
+	color: white;
+}
+#home-wrapper{
+	width: 100%;
+	margin: 0 auto;
+	vertical-align: top;
+}
+
+#locations-wrapper {
+	vertical-align: top;
+	box-sizing: border-box;
+	display: inline-block;
+	width: 73%;
+/*	background: grey;*/
+}
+
+#sidebar {
+	vertical-align: top;
+	box-sizing: border-box;
+	display: inline-block;
+	width: 25%;
+	background: grey;
+	margin: 0 auto;
+	height: 80%;
+/*	margin-left: 5%;*/
+	overflow: auto;
+}
+
+/******************/
+/* LOCATIONS BOXES*/
+/******************/
+
+.locations-div {
+	display: inline-block;
+	box-sizing: border-box;
+	margin-left: 1em;
+	width: 47%;
+	border: 1px solid black;
+	background: white;
+	margin-bottom: 10px;
+	padding: 1em;
+	border-radius: 8px;
+}
+
+#add-location-div:hover {
+	background: lightblue;
+}
+
+.location-name {
+	display: block;
+	font-size: 20px;
+	margin-bottom: 5px;
+	border-bottom: 1px solid black;
+}
+
+.locations-button {
+	display: inline-block;
+	margin: 0 auto;
+	margin-left: 12%;
+	padding: 6px;
+	background: #3D8674;
+	color: white;
+	margin-top: 5px;
+}
+
+.locations-button:hover {
+	background: #98D2C3;
+}
+
+.wine-info-span {
+	float: right;
+}
+/******************/
+/* SEARCH STUFF   */
+/******************/
+
+#wine-search-wrapper {
+	width: 50%;
+	margin: 0 auto;
+}
+
+/* wine results li*/
+#wineresults {
+	margin: 0 auto;
+	display: inline-block;
+	width: 100%;
+	border-right: none;
+	background-color: white;
+	background-color: rgba(255, 255, 255, 0.6);
+}
+
+#wineresults:hover {
+	background: #E9E9FF ;
+	color: black;
+}
+
+#add-to-location {
+	float: right;
+}
+
+form {
+/*	background-color: #A1BCC5;*/
+	margin: 0 auto;
+	padding: 1em;
+	width: 400px;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	text-align: center;
+	color: white;
+}
+
+input {
+	font-size: 16px;
+	width: 100%;
+	height: 30px;
+}
+
+button{
+	margin-top: 10px;
+	width: 100px;
+	height: 30px;
+	background: white;
+	border: 1px solid black;
+}
+
+/*===================*/
+/* MEDIA QUERIES     */
+/*===================*/
+
+/*for devices 480px and smaller*/
+@media (max-width: 480px) {
+	#sidebar {
+		display: block;
+		width: 100%;
+		margin-left: 0px;
+		margin-top: 10px;
+		height: 400px;
+	}
+	#locations-wrapper{
+		width: 100%;
+	}
+	.locations-div{
+		margin-bottom: 20px;
+		width: 100%;
+
+	}
+}
+
+/*for tablet devices 860 and smaller*/
+@media (max-width: 860px) {
+	#sidebar {
+		display: block;
+		width: 100%;
+		margin-left: 0px;
+		margin-top: 10px;
+		height: 400px;
+	}
+	#locations-wrapper{
+		width: 100%;
+	}
+	.locations-div{
+		margin-bottom: 20px;
+		width: 90%;
+	}
 }
