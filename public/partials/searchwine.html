@@ -9,7 +9,26 @@
 
 	  <ul>
 	  	<li id="wineresults" ng-repeat="wine in wineCtrl.wineResults track by $index">{{wine.Name}}
-	  		<div id="add-to-location">Add To Collection</div>
+	  		<div id="add-to-location" ng-click="wineCtrl.popUp(wine)">Add To Collection</div>
 	  	</li>
 	  </ul>
+
+	  <div id="choose-locations" ng-if="wineCtrl.showDiv">
+	  	<h1>Where would you like to save {{wine.Name}} to?</h1><br/>
+	  	<p ng-repeat="location in wineCtrl.locations" ng-click="wineCtrl.addWine(location._id)">{{location.name}}</p><br/>
+	  </div>
+
+
+
+
+
+
+
+
+	  <!-- testing to see if user info shows -->
+	  <h2>This is the username: {{user.username}}</h2><br/>
+	  <h2>This is the userid: {{user._id}}</h2><br/>
+	  <h2 ng-repeat="location in wineCtrl.locations">This is the wineCtrl locations for the user: {{wineCtrl.locations}}</h2><br/>
+	  <h2 ng-repeat="location in wineCtrl.locations">This is the name of the locations: {{location.name}}</h2><br/>
+	  <h2 ng-repeat="wine in location.wine">This is the name of the locations's wines: {{wine}}</h2><br/>
 </div>

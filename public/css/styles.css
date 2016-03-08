@@ -149,6 +149,15 @@ main h2 {
 #wine-search-wrapper {
 	width: 50%;
 	margin: 0 auto;
+	position: relative;
+}
+
+#wine-search-wrapper h1 {
+	color: black;
+}
+
+#wine-search-wrapper h2 {
+	color: white;
 }
 
 /* wine results li*/
@@ -168,6 +177,21 @@ main h2 {
 
 #add-to-location {
 	float: right;
+}
+
+#choose-locations {
+	text-align: center;
+	position: absolute;
+	width: 125%;
+	background: white;
+	color: black;
+	min-height: 242px;
+	top: 13%;
+	left: -9%;
+}
+
+#choose-locations p:hover {
+	background: lightblue;
 }
 
 form {
@@ -223,6 +247,9 @@ button{
 		width: 100%;
 
 	}
+	#choose-locations{
+		top: 3%;
+	}
 }
 
 /*for tablet devices 860 and smaller*/
@@ -240,5 +267,8 @@ button{
 	.locations-div{
 		margin-bottom: 20px;
 		width: 90%;
+	}
+	#choose-locations{
+		top: 6%;
 	}
 }
