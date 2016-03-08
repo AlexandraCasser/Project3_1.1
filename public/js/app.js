@@ -57,11 +57,6 @@ app.controller("WineController", ['$http', '$rootScope', function($http, $rootSc
             function(err){
                 console.log(err)
             }
-
-
-
-
-
     }
 
     //grab all the locations from the user, push it into the locations array []

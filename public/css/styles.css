@@ -101,6 +101,7 @@ main h2 {
 /******************/
 
 .locations-div {
+	vertical-align: top;
 	display: inline-block;
 	box-sizing: border-box;
 	margin-left: 1em;
@@ -110,6 +111,7 @@ main h2 {
 	margin-bottom: 10px;
 	padding: 1em;
 	border-radius: 8px;
+	min-height: 300px;
 }
 
 #edit-locations-div {
