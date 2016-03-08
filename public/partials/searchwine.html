@@ -14,7 +14,7 @@
 	  </ul>
 
 	  <div id="choose-locations" ng-if="wineCtrl.showDiv">
-	  	<h1>Select which location to save to:</h1><br/>
+	  	<h1>Where would you like to save {{wine.Name}} to?</h1><br/>
 	  	<p ng-repeat="location in wineCtrl.locations" ng-click="wineCtrl.addWine(location._id)">{{location.name}}</p><br/>
 	  </div>
 

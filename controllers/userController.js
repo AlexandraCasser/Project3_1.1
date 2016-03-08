@@ -112,9 +112,45 @@ router.post('/:id/location', function(req, res){
     });
 })
 
+//this saves the selected wine and selected location to save to DB
 router.post('/:id/addwine', function(req, res){
     console.log("ADDING WINE IS ACCESSED");
-})
+    console.log("this was the location id request: ", req.body.locationid);
+    console.log("this was the wine request: ", req.body.wine);
+    console.log("this was the wine request's NAME: ", req.body.wine.Name);
+
+    User.findById(req.params.id, function(err, user){
+
+        //     console.log("Found user: ", user);
+            // console.log("Found location: ", location);
+            var newWine = new Wine({
+                name: req.body.wine.Name,
+                url: req.body.wine.Url,
+                onHand: 0,
+                userId: req.params.id,
+                type: req.body.wine.Varietal.Name
+            })
+
+            //save the new Wine
+            newWine.save(function(err, wine){
+                console.log("WINE WAS SAVED, CHECK MONGO")
+             })//ends newWine.save
+
+            console.log(user.location)
+
+            //for every location this user has, push the wine into this location
+            for (var i = 0; i < user.location.length; i++){
+                if (user.location[i]._id == req.body.locationid){
+                    user.location[i].wine.push(newWine);
+                }
+            }
+
+            //save the user
+            user.save();    
+
+            
+    })//ends find User by ID
+})//ends router.post
 
 //********************
 // UPDATE
