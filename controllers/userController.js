@@ -1,7 +1,8 @@
 var express = require("express");
 var router = express.Router();
 var User = require("../models/userSchema.js");
-// var Location = require("../models/locationsSchema.js");
+var Location = require("../models/locationSchema.js");
+var Wine = require("../models/wineSchema.js");
 var passport = require("passport");
 var mongoose = require('mongoose');
 mongoose.set('debug', true);
@@ -85,6 +86,30 @@ router.post('/login', passport.authenticate('local-login',{
 router.post('/search', function(req, res){
     console.log("this is SEARCH: req.body.input ", req.body.input)
     res.send(req.body.input)
+})
+
+//new location
+router.post('/:id/location', function(req, res){
+    console.log('WORKING');
+    console.log(req.params.id);
+    console.log(req.body);   
+    User.findById(req.params.id, function(err, user){
+        var newLocation = new Location(req.body);
+            console.log("new location ");
+        newLocation.save(function(err){
+            
+        user.location.push(newLocation);
+        // var bla = User.Location;
+        //  bla.push(newLocation);
+        console.log("new location added");
+        //push location into locations.user
+        //save user
+        user.save(function(err, user){
+             //send user to client
+            res.send(user);
+        });
+        })
+    });
 })
 
 //********************

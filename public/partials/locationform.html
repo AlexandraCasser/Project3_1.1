@@ -1,0 +1,10 @@
+<div ng-controller='LocationController as locCtrl' ng-if='user'>
+	{{locCtrl.name}}
+	<h1>Add new location</h1>
+	<form id='addLocation' ng-submit=''>
+		<h2>Name:</h2><br/>
+		<input type='text' ng-model='name' placeholder='Location Name'/>
+		<input type="hidden" name="userId" value="user._id"></input>
+		<button ng-click='addLocation()'>Add</button>
+	</form>
+</div>

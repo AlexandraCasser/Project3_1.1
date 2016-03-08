@@ -1,5 +1,6 @@
 
-var app = angular.module("wineNot", ["ngRoute", "user-form"]);
+var app = angular.module("wineNot", ["ngRoute", "user-form", "location-form"]);
+
 
 //this is the wineController
 // + makes query to wineAPI
@@ -48,6 +49,10 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
             templateUrl: 'partials/main.html',
             controller: 'FormController', 
             controllerAs: 'formCtrl'
+    }).when('/addlocation', {
+        templateUrl: 'partials/location.html',
+        controller: 'LocationController',
+        controllerAs: 'locCtrl'
     })
 }]);
 

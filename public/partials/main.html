@@ -68,9 +68,16 @@
 				</div>
 			</div>
 
-				<div class="locations-div" id="add-location-div">
-					Add a New Location!
-				</div>
+
+			<div class="locations-div" id="add-location-div" ng-controller='LocationController as locCtrl'>
+				{{locCtrl.name}}
+				<h1>Add new location</h1>
+				<form id='addLocation' ng-submit=''>
+					<h2>Name:</h2><br/>
+					<input type='text' ng-model='name' placeholder='Location Name'/>
+					<button ng-click='addLocation()'>Add</button>
+				</form>
+			</div>
 		</div>
 
 		<div id="sidebar">
