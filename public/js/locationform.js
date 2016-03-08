@@ -38,35 +38,36 @@ app.controller("LocationController", ["$http", "$rootScope", '$scope', function(
 
     this.showEditDiv = false;
     this.showAddDiv = true;
-    this.index = null;
+    $scope.index = null;
 
     this.showEdit = function(index) {
-        this.index = index;
-        for  ( var i = 0; i < $rootScope.user.location.length; i++) {
-            if (index == i) {
-            this.showEditDiv = !this.showEditDiv;
-            this.showAddDiv = !this.showAddDiv;
-            }
-        }
+        $scope.index = index;
+        this.showEditDiv = !this.showEditDiv;
+        this.showAddDiv = !this.showAddDiv;
     }
 
 
     this.editLocation = function(index) {
-        console.log($scope.locationCtrl.locations);
+        console.log(index);
+        console.log($scope.locationCtrl.locations[index]._id);
 
-        // var locationID = $scope.$$childHead.location._id;
+        var locationID = $scope.locationCtrl.locations[index]._id;
         var userID = $rootScope.user._id;
        
-        // $http.put('/user/' + userID + '/' + locationID, { name : this.name}).then(function(response){
-        //     console.log(response);
+        $http.put('/user/' + userID + '/' + locationID, { name : this.name}).then(function(response){
+            console.log(response);
+            $http.get("/user/" + userID).then(function(response){
+            $scope.locationCtrl.locations[index].name = response.data.location[index].name;
+            
+        })
 
-        // }, function(err){
-        //     console.log(err);
-        // });
+        }, function(err){
+            console.log(err);
+        });
 
-        // this.showEditDiv = !this.showEditDiv;
-        // this.showAddDiv = !this.showAddDiv;
-        // this.name = undefined;
+        this.showEditDiv = !this.showEditDiv;
+        this.showAddDiv = !this.showAddDiv;
+        this.name = undefined;
     }
 
 }])
