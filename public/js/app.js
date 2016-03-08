@@ -9,6 +9,8 @@ app.controller("WineController", ['$http', function($http){
     this.searchdata = "";
     this.name = "This is the wine controller";
     this.wineResults = [];
+    this.showDiv = false;
+    this.message = "";
 
     this.searchWine = function(){
        $http({
@@ -28,6 +30,17 @@ app.controller("WineController", ['$http', function($http){
         console.log(err)
        }
     }
+
+    this.popUp = function(){
+        controller.message = "Choose the location you want to add to: ";
+        controller.showDiv = !controller.showDiv
+    }
+
+    this.addWine = function(locationname){
+        console.log(locationname);
+        controller.message = "Wine has been added!"
+    }
+
 }]);
 
 app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {

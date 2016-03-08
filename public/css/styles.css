@@ -55,7 +55,7 @@ li:hover{
 	color: white;
 }
 
-#user-sign-in h2{
+#user-sign-in h1{
 	text-align: center;
 }
 /*****************/
@@ -147,8 +147,12 @@ main h2 {
 #wine-search-wrapper {
 	width: 50%;
 	margin: 0 auto;
+	position: relative;
 }
 
+#wine-search-wrapper h1{
+	color: white;
+}
 /* wine results li*/
 #wineresults {
 	margin: 0 auto;
@@ -166,6 +170,25 @@ main h2 {
 
 #add-to-location {
 	float: right;
+}
+
+#choose-locations{
+	text-align: center;
+	width: 70%;
+	position: absolute;
+	top: 42%;
+	left: 19%;
+	background: white;
+	min-height: 200px;
+	color: black;
+}
+
+#choose-locations h1 {
+	color: black;
+}
+
+#choose-locations h1:hover{
+	background: lightblue;
 }
 
 form {
