@@ -5,7 +5,7 @@ var app = angular.module("wineNot", ["ngRoute", "user-form", "location-form"]);
 //this is the wineController
 // + makes query to wineAPI
 // + saves into array??
-app.controller("WineController", ['$http', '$rootScope', function($http, $rootScope){
+app.controller("WineController", ['$http', '$rootScope', '$location', function($http, $rootScope, $location){
     var controller = this;
     this.locations = [];
     this.searchdata = "";
@@ -47,16 +47,25 @@ app.controller("WineController", ['$http', '$rootScope', function($http, $rootSc
 
     //this will send the location and wine name to server
     this.addWine = function(locationid){
+        var userID = $rootScope.user._id;
         controller.location_id = locationid;
         console.log("this is controller.location_id: ", controller.location_id)
             
         $http.post('/user/' + userID + '/addwine', {locationid: controller.location_id, wine: controller.wine})
             .then(function(response){
-                console.log("SERVER HAS RESPONDED: ", response)
+                
+                controller.message= "This has been added to your collection!"
+              
             }),
             function(err){
                 console.log(err)
             }
+        //redirect back to home back
+        $location.path('/user/' + userID);
+    }
+
+    this.close = function(){
+        controller.showDiv = false;
     }
 
     //grab all the locations from the user, push it into the locations array []

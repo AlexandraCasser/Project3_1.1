@@ -13,6 +13,7 @@
 
 </div>
 <!-- JOHNS USER LOGIN FORM --> 
+
 <section ng-if="user">
 	<br/><br/>
 	<h2>WELCOME BACK, {{user.username | uppercase}}!</h2><br/>
@@ -25,11 +26,12 @@
 		<div id="locations-wrapper">
 			
 			<div class="locations-div" ng-repeat="location in locationCtrl.locations track by $index">
-				<span class="location-name">{{location.name}}</span>
+
 				<!-- for every wine for this location, display wine, limit: 5? -->
 				<div ng-repeat="wine in location.wine track by $index" class="wine-list">		
  					<span>{{wine.name | limitTo: 30}} </span>
  					<span class="wine-info-span" > &nbsp; x &nbsp; &nbsp; </span>
+
 
  					<span class="wine-info-span" ng-click="locationCtrl.addOneWine($index, location.name)"> &nbsp; + &nbsp; &nbsp; INDEX {{$index}}</span>	
 
@@ -37,39 +39,44 @@
  					<span class="wine-info-span" ng-model='onHand'>&nbsp; &nbsp;{{wine.onHand}} &nbsp;</span>
 
 
+
  				</div>
 
-				<div class="locations-button">
-					<a href="/search">Add Wine</a>
-				</div>
+ 				<div id="location-buttons">
+                    <div class="locations-button">
+                        Add Wine
+                    </div>
 
-				<div class="locations-button" ng-click='locationCtrl.showEdit($index)'>
-					<input type='hidden' ng-model='index' name='index' value='$index'>Edit Location {{$index}}
-				</div>
+                    <div class="locations-button" ng-click='locationCtrl.showEdit($index)'>
+                        <input type='hidden' ng-model='index' name='index' value='$index'>Edit Location {{$index}}
+                    </div>
+                </div>
+
+            </div>
 
 
-			</div>
+            <div class="locations-div" id="add-location-div" ng-if='locationCtrl.showAddDiv'>
+                <h1>Add new location</h1>
+                <form id='addLocation' ng-submit=''>
+                    <h2>Name:</h2><br/>
+                    <input type='text' ng-model='locationCtrl.name' placeholder='Location Name'/><br/>
+                    <button ng-click='locationCtrl.addLocation()'>Add</button>
+                </form>
+            </div>
+        </div>
+
+        <div id="edit-locations-div" ng-if='locationCtrl.showEditDiv'>
+            EDIT LOCATION NAME: <input type='text' ng-model='locationCtrl.name' placeholder='EDIT NAME'>
+            <button ng-click='locationCtrl.editLocation(index)'>Edit</button>
+            <button ng-click='locationCtrl.deleteLocation(index)'>Delete</button>
+        </div>
+
+        <div ng-if="locationCtrl.showDiv" class="modal-bg"></div>
 
 
-			<div class="locations-div" id="add-location-div" ng-if='locationCtrl.showAddDiv'>
-				<h1>Add new location</h1>
-				<form id='addLocation' ng-submit=''>
-					<h2>Name:</h2><br/>
-					<input type='text' ng-model='locationCtrl.name' placeholder='Location Name'/><br/>
-					<button ng-click='locationCtrl.addLocation()'>Add</button>
-				</form>
-			</div>
-		</div>
-
-		<div id="edit-locations-div" ng-if='locationCtrl.showEditDiv'>
-			EDIT LOCATION NAME: <input type='text' ng-model='locationCtrl.name' placeholder='EDIT NAME'>
-			<button ng-click='locationCtrl.editLocation(index)'>Edit</button>
-			<button ng-click='locationCtrl.deleteLocation(index)'>Delete</button>
-		</div>
-
-		<div id="sidebar">
-			Notifications GO HERE
-		</div>
-		</section>
-	</section>
+        <div id="sidebar">
+            Notifications GO HERE
+        </div>
+        </section>
+    </section>
 </main>

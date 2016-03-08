@@ -8,6 +8,7 @@ app.controller("LocationController", ["$http", "$rootScope", '$scope', function(
     var controller = this;
     // console.log($rootScope.user._id);
     var userID = $rootScope.user._id;
+    this.fadeDiv = false;
     
     // $rootScope.addLocation = function(){
     this.addLocation = function(){
@@ -41,14 +42,21 @@ app.controller("LocationController", ["$http", "$rootScope", '$scope', function(
     this.showAddDiv = true;
     $scope.index = null;
 
+
     this.showEdit = function(index) {
         $scope.index = index;
         this.showEditDiv = !this.showEditDiv;
         this.showAddDiv = !this.showAddDiv;
+        controller.fadeDiv = true;
+        console.log("ShowEdit route was pushed, the view shouldve faded");
+        console.log(controller.fadeDiv)
+
     }
 
 
     this.editLocation = function(index) {
+
+
         console.log(index);
         console.log($scope.locationCtrl.locations[index]._id);
 
@@ -68,6 +76,8 @@ app.controller("LocationController", ["$http", "$rootScope", '$scope', function(
 
         this.showEditDiv = !this.showEditDiv;
         this.showAddDiv = !this.showAddDiv;
+
+
         this.name = undefined;
     }
 
