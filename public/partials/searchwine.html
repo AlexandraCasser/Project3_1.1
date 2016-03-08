@@ -4,8 +4,6 @@
 		  <input type="text" name="name" placeholder="ie. Sauvignon 2013, Mondavi Merlot, etc" ng-model="wineCtrl.searchdata.input">
 		  <button>Search</button>
 		</form>
-<!-- 
-		This is route params: {{wineCtrl.id}} -->
 
 	  <ul>
 	  	<li id="wineresults" ng-repeat="wine in wineCtrl.wineResults track by $index">{{wine.Name}}
@@ -18,17 +16,4 @@
 	  	<p ng-repeat="location in wineCtrl.locations" ng-click="wineCtrl.addWine(location._id)">{{location.name}}</p><br/>
 	  </div>
 
-
-
-
-
-
-
-
-	  <!-- testing to see if user info shows -->
-	  <h2>This is the username: {{user.username}}</h2><br/>
-	  <h2>This is the userid: {{user._id}}</h2><br/>
-	  <h2 ng-repeat="location in wineCtrl.locations">This is the wineCtrl locations for the user: {{wineCtrl.locations}}</h2><br/>
-	  <h2 ng-repeat="location in wineCtrl.locations">This is the name of the locations: {{location.name}}</h2><br/>
-	  <h2 ng-repeat="wine in location.wine">This is the name of the locations's wines: {{wine}}</h2><br/>
 </div>

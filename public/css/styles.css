@@ -9,6 +9,30 @@ body {
 	background: url("/images/winebackground.jpg");
 
 }
+
+main h2 {
+	color: #EACCCC
+}
+
+/*****************/
+/* LOG IN STUFF  */
+/*****************/
+.user-sign-in {
+	text-align: center;
+	color: #D6BEBE;
+	margin-top: 30px;
+}
+
+.user-sign-in a {
+	color: white;
+	text-decoration: none;
+}
+
+.user-sign-in a:hover{
+	text-decoration: underline;
+}
+
+
 /*****************/
 /* HEADER NAV BAR*/
 /*****************/
@@ -67,9 +91,6 @@ main {
 	vertical-align: top;
 }
 
-main h2 {
-	color: #716363;
-}
 #home-wrapper{
 	width: 100%;
 	margin: 0 auto;
@@ -187,11 +208,12 @@ main h2 {
 /* wine results li*/
 #wineresults {
 	margin: 0 auto;
-	display: inline-block;
-	width: 100%;
-	border-right: none;
-	background-color: white;
-	background-color: rgba(255, 255, 255, 0.6);
+    display: inline-block;
+    width: 100%;
+    border-right: none;
+    font-size: 1.2em;
+    border-bottom: 1px solid grey;
+	background-color: rgba(255, 255, 255, 0.8);
 }
 
 #wineresults:hover {
@@ -201,6 +223,16 @@ main h2 {
 
 #add-to-location {
 	float: right;
+    background: #3D8674;
+    border-radius: 10px;
+    padding: 1em;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#add-to-location:hover {
+	background-color: #5ABFA6
 }
 
 #choose-locations {
@@ -250,6 +282,13 @@ button{
 	border: 1px solid black;
 }
 
+#userSignup button:hover {
+	background: #988080;
+}
+
+#userLogin button:hover {
+	background: #988080;
+}
 /*===================*/
 /* MEDIA QUERIES     */
 /*===================*/
