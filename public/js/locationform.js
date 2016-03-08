@@ -24,19 +24,7 @@ app.controller("LocationController", ["$http", "$rootScope", '$scope', function(
             function(err){
                 console.log(err);
             });
-    }
-
-    this.deleteLocation = function(index){
-        var userID = $rootScope.user._id;
-        var locationID = $scope.locationCtrl.locations[index]._id;
-        $http.delete('/user/' + userID + '/' + locationID).then(
-            function(response){
-                var allLocations = response.data.location;
-                controller.locations.splice(response.data.location[allLocations.length - 1])
-            },
-            function(err){
-                console.log(err);
-            });
+        this.name = undefined;
     }
 
     //grab all the locations from the user, push it into the locations array []
@@ -82,5 +70,19 @@ app.controller("LocationController", ["$http", "$rootScope", '$scope', function(
         this.showAddDiv = !this.showAddDiv;
         this.name = undefined;
     }
-
-}])
+    //deletes a location by its index position
+    this.deleteLocation = function(index){
+    var userID = $rootScope.user._id;
+    var locationID = $scope.locationCtrl.locations[index]._id;
+    $http.delete('/user/' + userID + '/' + locationID).then(
+        function(response){
+            var allLocations = response.data.location;
+            controller.locations.splice(index,1);
+        },
+        function(err){
+            console.log(err);
+        });
+    this.showEditDiv = !this.showEditDiv;
+    this.showAddDiv = !this.showAddDiv;
+    }
+}]);
