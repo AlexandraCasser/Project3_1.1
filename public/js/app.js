@@ -32,7 +32,8 @@ app.controller("WineController", ['$http', function($http){
        }
     }
 
-    this.popUp = function(){
+    this.popUp = function(wine){
+        console.log("this is the wine object you clicked on ", wine)
         controller.message = "Choose the location you want to add to: ";
         controller.showDiv = !controller.showDiv
     }

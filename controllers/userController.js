@@ -78,8 +78,8 @@ router.post('/login', passport.authenticate('local-login',{
 //Post new user
 // router.post('/', passport.authenticate('local-signup', {
 //     failureRedirect : '/users' // redirect to the signup page if error
-// 			}), function(req, res) {
-//     	res.redirect('/users/' + req.user.id);  //from passport.js
+//             }), function(req, res) {
+//         res.redirect('/users/' + req.user.id);  //from passport.js
 // });
 
 //search results

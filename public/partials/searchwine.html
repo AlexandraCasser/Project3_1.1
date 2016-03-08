@@ -9,13 +9,13 @@
 
 	  <ul>
 	  	<li id="wineresults" ng-repeat="wine in wineCtrl.wineResults track by $index">{{wine.Name}}
-	  		<div id="add-to-location" ng-click="wineCtrl.popUp()">Add To Collection</div>
+	  		<div id="add-to-location" ng-click="wineCtrl.popUp(wine)">Add To Collection</div>
 	  	</li>
 	  </ul>
 
 	  <div id="choose-locations" ng-if="wineCtrl.showDiv">
 	  	<h1>Select which location to save to:</h1><br/>
-	  	<p ng-repeat="location in user.location" ng-click="wineCtrl.addWine(location.name)">{{location.name}}</p><br/>
+	  	<p ng-repeat="location in user.location" ng-click="wineCtrl.addWine(location)">{{location.name}}</p><br/>
 	  </div>
 
 	  <!-- testing to see if user info shows -->

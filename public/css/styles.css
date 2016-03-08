@@ -190,6 +190,9 @@ main h2 {
 	left: -9%;
 }
 
+#choose-locations p:hover {
+	background: lightblue;
+}
 
 form {
 /*	background-color: #A1BCC5;*/
@@ -264,5 +267,8 @@ button{
 	.locations-div{
 		margin-bottom: 20px;
 		width: 90%;
+	}
+	#choose-locations{
+		top: 6%;
 	}
 }
