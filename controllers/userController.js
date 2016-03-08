@@ -120,13 +120,6 @@ router.post('/:id/location', function(req, res){
 //     });
 // });
 
-//delete location
-router.delete('/:id', function(req, res) {
-    console.log('Deleted location');
-    Location.findByIdAndRemove(req.params.id, function(err, data) {
-        res.redirect('/');
-    });
-});
 
 //this saves the selected wine and selected location to save to DB
 router.post('/:id/addwine', function(req, res){
@@ -209,11 +202,15 @@ router.put('/:id/:location_id', function(req,res){
 // DELETE
 //********************
 
-//Delete user
-router.delete('/:id', function(req, res) {
-    console.log('Deleted user');
-    User.findByIdAndRemove(req.params.id, function(err, data) {
-        res.redirect('/');
+//delete location
+router.delete('/:id/:location_id', function(req, res) {
+    // console.log('Deleted location');
+    Location.findByIdAndRemove(req.params.location_id, function(err, location) {
+        var locationID = req.params.location_id;
+        User.update({}, {$pull: { location : { _id : locationID }}}, {multi : false}, function(err,user){
+            console.log(user);
+            res.send(user);
+        })
     });
 });
 
