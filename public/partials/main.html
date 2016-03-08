@@ -22,11 +22,6 @@
 		
 
 		<div id="locations-wrapper">
-				<div id="edit-locations-div" ng-if='locationCtrl.showEditDiv'>
-					EDIT LOCATION NAME: <input type='text' ng-model='locationCtrl.name' placeholder='EDIT NAME'>
-					<button ng-click='locationCtrl.editLocation(location_id)'>Edit</button>
-					<button>Delete</button>
-				</div>
 			
 			<div class="locations-div" ng-repeat="location in locationCtrl.locations track by $index">
 				<span class="location-name">{{location.name}}</span>
@@ -37,7 +32,7 @@
 				</div>
 
 				<div class="locations-button" ng-click='locationCtrl.showEdit($index)'>
-					<input type='hidden' name='index' value='$index'>Edit Location {{$index}}
+					<input type='hidden' ng-model='index' name='index' value='$index'>Edit Location {{$index}}
 				</div>
 
 
@@ -52,6 +47,12 @@
 					<button ng-click='locationCtrl.addLocation()'>Add</button>
 				</form>
 			</div>
+		</div>
+
+		<div id="edit-locations-div" ng-if='locationCtrl.showEditDiv'>
+			EDIT LOCATION NAME: <input type='text' ng-model='locationCtrl.name' placeholder='EDIT NAME'>
+			<button ng-click='locationCtrl.editLocation(index)'>Edit</button>
+			<button>Delete</button>
 		</div>
 
 		<div id="sidebar">
