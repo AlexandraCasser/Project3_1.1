@@ -112,6 +112,22 @@ router.post('/:id/location', function(req, res){
     });
 })
 
+//edit location
+// router.put('/:id/location', function(req, res){
+//         console.log(req.params.id);
+//         Location.findByIdAndUpdate(req.params.id, req.body, function(err, user){
+//     res.redirect('/users/' + req.params.id);
+//     });
+// });
+
+//delete location
+router.delete('/:id', function(req, res) {
+    console.log('Deleted location');
+    Location.findByIdAndRemove(req.params.id, function(err, data) {
+        res.redirect('/');
+    });
+});
+
 //********************
 // UPDATE
 //********************

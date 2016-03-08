@@ -26,6 +26,17 @@ app.controller("LocationController", ["$http", "$rootScope", function($http, $ro
             });
     }
 
+    this.deleteLocation = function(){
+        $http.post("/user/" + userID + '/location', { name: this.name}).then(
+            function(response){
+                var allLocations = response.data.location;
+                controller.locations.splice(response.data.location[allLocations.length - 1])
+            },
+            function(err){
+                console.log(err);
+            });
+    }
+
     //grab all the locations from the user, push it into the locations array []
     $http.get("/user/" + userID).then(function(response){
 
