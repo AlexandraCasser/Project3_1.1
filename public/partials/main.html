@@ -18,12 +18,12 @@
 
 
 
-	<section id="home-wrapper">
+	<section id="home-wrapper" ng-controller="LocationController as locationCtrl">
 		
 
 		<div id="locations-wrapper">
 			<div class="locations-div" ng-repeat="location in locationCtrl.locations">
-				<span class="location-name">{{location}}</span>
+				<span class="location-name">{{location.name}}</span>
 				<!-- for every wine for this location, display wine, limit: 5? -->
 				<div class="wine-list">
 					<span>Wine 1</span>
@@ -69,13 +69,12 @@
 			</div>
 
 
-			<div class="locations-div" id="add-location-div" ng-controller='LocationController as locCtrl'>
-				{{locCtrl.name}}
+			<div class="locations-div" id="add-location-div">
 				<h1>Add new location</h1>
 				<form id='addLocation' ng-submit=''>
 					<h2>Name:</h2><br/>
-					<input type='text' ng-model='name' placeholder='Location Name'/>
-					<button ng-click='addLocation()'>Add</button>
+					<input type='text' ng-model='locationCtrl.name' placeholder='Location Name'/><br/>
+					<button ng-click='locationCtrl.addLocation()'>Add</button>
 				</form>
 			</div>
 		</div>
