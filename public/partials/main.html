@@ -52,7 +52,7 @@
 		<div id="edit-locations-div" ng-if='locationCtrl.showEditDiv'>
 			EDIT LOCATION NAME: <input type='text' ng-model='locationCtrl.name' placeholder='EDIT NAME'>
 			<button ng-click='locationCtrl.editLocation(index)'>Edit</button>
-			<button>Delete</button>
+			<button ng-click='locationCtrl.deleteLocation(index)'>Delete</button>
 		</div>
 
 		<div id="sidebar">
