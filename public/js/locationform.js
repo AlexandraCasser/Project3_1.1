@@ -86,5 +86,42 @@ app.controller("LocationController", ["$http", "$rootScope", '$scope', function(
     this.showEditDiv = !this.showEditDiv;
     this.showAddDiv = !this.showAddDiv;
     }
+
+
+    this.addOneWine = function(index, name) {
+        console.log('I WORK!');
+        console.log(index);
+        console.log(name);
+        console.log($scope);
+        console.log($rootScope.user.location);
+        var userID = $rootScope.user._id;
+        var name = name;
+        var index = index;
+        $http.put('/user/' + userID + '/' + name + '/' + index).then(function(response){
+            console.log(response);
+            // controller.onHand += 1;
+            for (var i = 0; i < $rootScope.user.location.length; i++) {
+                console.log($rootScope.user.location[i].name);
+                console.log(name);
+                if ($rootScope.user.location[i].name = name) {
+                    for (var j = 0; j < $rootScope.user.location[i].wine.length; j++) {
+                        $rootScope.user.location[i].wine[index].onHand += 1;
+                    };
+                };
+            };
+
+        },
+        function(err){
+            console.log(err);
+        })
+
+    }
+
+
+    this.minusOneWine = function(index, name) {
+        console.log("I work, too!  And I'm the minus function");
+        console.log(index);
+    }
+
 }]);
 

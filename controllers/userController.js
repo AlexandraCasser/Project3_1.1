@@ -198,6 +198,25 @@ router.put('/:id/:location_id', function(req,res){
     });
 });
 
+//increment wine
+router.put('/:id/:location_name/:wine_index', function(req,res){
+    User.findById(req.params.id, function(err,user){
+        console.log('THIS IS OUR USER >>>>>>' + user);
+        console.log('THIS OUR USERS LOCs ' + user.location);
+        for (var i = 0; i < user.location.length; i++) {
+            if (user.location[i].name == req.params.location_name) {
+                console.log(user.location[i].name);
+                console.log(user.location[i].wine.length);
+                console.log(user.location[i].wine[req.params.wine_index]);
+                console.log(user.location[i].wine[req.params.wine_index].onHand);
+                user.location[i].wine[req.params.wine_index].onHand += 1;
+                user.save(function(err){
+                    res.send(user);
+                });
+            };
+        };
+    });
+});
 //********************
 // DELETE
 //********************
