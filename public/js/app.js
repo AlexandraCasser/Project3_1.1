@@ -49,7 +49,19 @@ app.controller("WineController", ['$http', '$rootScope', function($http, $rootSc
     this.addWine = function(locationid){
         controller.location_id = locationid;
         console.log("this is controller.location_id: ", controller.location_id)
-        controller.message = "Wine has been added!"
+            
+        $http.post('/user/' + userID + '/addwine', {locationid: controller.location_id, wine: controller.wine})
+            .then(function(response){
+                console.log("SERVER HAS RESPONDED: ", response)
+            }),
+            function(err){
+                console.log(err)
+            }
+
+
+
+
+
     }
 
     //grab all the locations from the user, push it into the locations array []

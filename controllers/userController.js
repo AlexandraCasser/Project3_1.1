@@ -112,7 +112,9 @@ router.post('/:id/location', function(req, res){
     });
 })
 
-
+router.post('/:id/addwine', function(req, res){
+    console.log("ADDING WINE IS ACCESSED");
+})
 
 //********************
 // UPDATE
