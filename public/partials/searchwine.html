@@ -15,8 +15,15 @@
 
 	  <div id="choose-locations" ng-if="wineCtrl.showDiv">
 	  	<h1>Select which location to save to:</h1><br/>
-	  	<p ng-repeat="location in wineCtrl.locations" ng-click="wineCtrl.addWine(location)">{{location.name}}</p><br/>
+	  	<p ng-repeat="location in wineCtrl.locations" ng-click="wineCtrl.addWine(location._id)">{{location.name}}</p><br/>
 	  </div>
+
+
+
+
+
+
+
 
 	  <!-- testing to see if user info shows -->
 	  <h2>This is the username: {{user.username}}</h2><br/>

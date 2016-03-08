@@ -14,6 +14,8 @@ app.controller("WineController", ['$http', '$rootScope', function($http, $rootSc
     this.showDiv = false;
     this.message = "";
     var userID = $rootScope.user._id;
+    this.wine = {};
+    this.location_id = "";
 
     this.searchWine = function(){
        $http({
@@ -37,13 +39,16 @@ app.controller("WineController", ['$http', '$rootScope', function($http, $rootSc
     //this creates a pop up window for the user to select their location
     this.popUp = function(wine){
         console.log("this is the wine object you clicked on ", wine)
+        controller.wine = wine;
+        console.log("this is what controller.wine looks like : " , controller.wine)
         controller.message = "Choose the location you want to add to: ";
         controller.showDiv = !controller.showDiv
     }
 
     //this will send the location and wine name to server
-    this.addWine = function(locationname){
-        console.log(locationname);
+    this.addWine = function(locationid){
+        controller.location_id = locationid;
+        console.log("this is controller.location_id: ", controller.location_id)
         controller.message = "Wine has been added!"
     }
 

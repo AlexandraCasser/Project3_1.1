@@ -112,6 +112,8 @@ router.post('/:id/location', function(req, res){
     });
 })
 
+
+
 //********************
 // UPDATE
 //********************
