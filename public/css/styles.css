@@ -110,7 +110,7 @@ main {
 	box-sizing: border-box;
 	display: inline-block;
 	width: 25%;
-	background: grey;
+	background: #DCDEB1;
 	margin: 0 auto;
 	height: 80%;
 /*	margin-left: 5%;*/
@@ -133,6 +133,7 @@ main {
 	padding: 1em;
 	border-radius: 8px;
 	min-height: 300px;
+	position: relative;
 }
 
 #edit-locations-div {
@@ -152,8 +153,6 @@ main {
 	background: lightblue;
 }
 
-
-
 .location-name {
 	display: block;
 	font-size: 20px;
@@ -161,6 +160,11 @@ main {
 	border-bottom: 1px solid black;
 }
 
+#location-buttons{
+	position: absolute;
+	bottom: 10px;
+    width: 100%;
+}
 .locations-button {
 	display: inline-block;
 	margin: 0 auto;
@@ -169,6 +173,7 @@ main {
 	background: #3D8674;
 	color: white;
 	margin-top: 5px;
+	bottom: 4px;
 }
 
 .locations-button:hover {
