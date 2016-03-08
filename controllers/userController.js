@@ -1,7 +1,7 @@
 var express = require("express");
 var router = express.Router();
 var User = require("../models/userSchema.js");
-// var Location = require("../models/locationsSchema.js");
+// var Location = require("../models/locationSchema.js");
 var passport = require("passport");
 var mongoose = require('mongoose');
 mongoose.set('debug', true);
@@ -13,7 +13,7 @@ mongoose.set('debug', true);
 
 
 //LOGOUT
-router.get('/logout', function(req,res){
+router.get('/:id/logout', function(req,res){
     console.log("LOGGED OUT!");
     req.logout();
     res.redirect('/');
