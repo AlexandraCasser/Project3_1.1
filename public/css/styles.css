@@ -14,6 +14,15 @@ main h2 {
 	color: #EACCCC
 }
 
+.modal-bg { 
+  background: rgba(0, 0, 0, 0.4)
+  position:fixed; 
+  top:0; left:0; 
+  width:100%; 
+  height:100%;
+  z-index:10; 
+}
+
 /*****************/
 /* LOG IN STUFF  */
 /*****************/
@@ -137,17 +146,34 @@ main {
 }
 
 #edit-locations-div {
-	display: inline-block;
-	box-sizing: border-box;
-	margin-left: 1em;
-	width: 94%;
-	height: 25%;
-	border: 1px solid black;
-	background: white;
-	margin-bottom: 10px;
-	padding: 1em;
-	border-radius: 8px;
+    display: inline-block;
+    box-sizing: border-box;
+    margin-left: 1em;
+    width: 43%;
+    height: 25%;
+    border: 1px solid black;
+    background: white;
+    margin-bottom: 10px;
+    padding: 1em;
+    border-radius: 8px;
+    position: fixed;
+    top: 34%;
+    left: 30%;
 }
+
+
+#centered_div { 
+	width: 60px; 
+	height: 20px; 
+	position: absolute; 
+	top: 50%; 
+	left: 50%; 
+	margin-left: -30px; 
+	margin-top: -10px; 
+} 
+
+
+
 
 #add-location-div:hover {
 	background: lightblue;
@@ -308,6 +334,7 @@ button{
 #userLogin button:hover {
 	background: #988080;
 }
+
 /*===================*/
 /* MEDIA QUERIES     */
 /*===================*/

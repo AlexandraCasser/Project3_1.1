@@ -13,6 +13,7 @@
 
 </div>
 <!-- JOHNS USER LOGIN FORM --> 
+
 <section ng-if="user">
 	<br/><br/>
 	<h2>WELCOME BACK, {{user.username | uppercase}}!</h2><br/>
@@ -67,6 +68,9 @@
 			<button ng-click='locationCtrl.editLocation(index)'>Edit</button>
 			<button ng-click='locationCtrl.deleteLocation(index)'>Delete</button>
 		</div>
+
+		<div ng-if="locationCtrl.showDiv" class="modal-bg"></div>
+
 
 		<div id="sidebar">
 			Notifications GO HERE
