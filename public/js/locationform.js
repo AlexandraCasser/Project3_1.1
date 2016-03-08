@@ -1,7 +1,7 @@
 
 var app = angular.module("location-form", ['ngRoute']);
 
-app.controller("LocationController", ["$http", "$rootScope", function($http, $rootScope){
+app.controller("LocationController", ["$http", "$rootScope", '$scope', function($http, $rootScope, $scope){
     // this.locations = $rootScope.user.location;
     // this.name ="TESTING";
     this.locations = [];
@@ -46,5 +46,38 @@ app.controller("LocationController", ["$http", "$rootScope", function($http, $ro
             console.log(response.data.location[i])
         }
     })
+
+    this.showEditDiv = false;
+    this.showAddDiv = true;
+    this.index = null;
+
+    this.showEdit = function(index) {
+        this.index = index;
+        for  ( var i = 0; i < $rootScope.user.location.length; i++) {
+            if (index == i) {
+            this.showEditDiv = !this.showEditDiv;
+            this.showAddDiv = !this.showAddDiv;
+            }
+        }
+    }
+
+
+    this.editLocation = function(index) {
+        console.log($scope.locationCtrl.locations);
+
+        // var locationID = $scope.$$childHead.location._id;
+        var userID = $rootScope.user._id;
+       
+        // $http.put('/user/' + userID + '/' + locationID, { name : this.name}).then(function(response){
+        //     console.log(response);
+
+        // }, function(err){
+        //     console.log(err);
+        // });
+
+        // this.showEditDiv = !this.showEditDiv;
+        // this.showAddDiv = !this.showAddDiv;
+        // this.name = undefined;
+    }
 
 }])
