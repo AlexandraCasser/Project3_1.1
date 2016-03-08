@@ -221,7 +221,7 @@ main {
 	color: black;
 }
 
-#add-to-location {
+.add-to-location {
 	float: right;
     background: #3D8674;
     border-radius: 10px;
@@ -231,11 +231,19 @@ main {
     cursor: pointer;
 }
 
-#add-to-location:hover {
+.add-to-location:hover {
 	background-color: #5ABFA6
 }
 
+#cancel-button {
+	float: none;
+	width: 40px;
+	text-align: center;
+	margin: 0 auto;
+}
+
 #choose-locations {
+	padding: 1em;
 	text-align: center;
 	position: absolute;
 	width: 125%;
@@ -246,8 +254,14 @@ main {
 	left: -9%;
 }
 
+#choose-locations p {
+	margin: 4px;
+	padding: 5px;
+}
 #choose-locations p:hover {
 	background: lightblue;
+	cursor: pointer;
+	font-weight: bold;
 }
 
 form {
