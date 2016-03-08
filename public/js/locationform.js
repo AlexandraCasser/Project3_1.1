@@ -83,4 +83,12 @@ app.controller("LocationController", ["$http", "$rootScope", '$scope', function(
         this.name = undefined;
     }
 
+
+     this.addOneWine = function(){
+         
+            $scope.onHand ++;
+            console.log($scope.onHand)
+          }
+        
+
 }])

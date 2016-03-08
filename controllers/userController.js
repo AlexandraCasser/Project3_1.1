@@ -29,12 +29,12 @@ router.get('/:id/logout', function(req,res){
 //     }
 // });
 
-// JSON
-router.get('/json', function(req, res) {
-    User.find({}, function(err, data) {
-        res.send(data);
-    });
-});  
+// // JSON
+// router.get('/json', function(req, res) {
+//     User.find({}, function(err, data) {
+//         res.send(data);
+//     });
+// });  
 
 //HOMEPAGE
 router.get("/:id", function(req, res){
