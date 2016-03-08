@@ -151,6 +151,10 @@ main h2 {
 	margin: 0 auto;
 }
 
+#wine-search-wrapper h1 {
+	color: white;
+}
+
 /* wine results li*/
 #wineresults {
 	margin: 0 auto;
