@@ -11,7 +11,7 @@ body {
 }
 
 main h2 {
-	color: #716363;
+	color: #EACCCC
 }
 
 /*****************/
@@ -20,6 +20,7 @@ main h2 {
 .user-sign-in {
 	text-align: center;
 	color: #D6BEBE;
+	margin-top: 30px;
 }
 
 .user-sign-in a {
@@ -207,11 +208,12 @@ main {
 /* wine results li*/
 #wineresults {
 	margin: 0 auto;
-	display: inline-block;
-	width: 100%;
-	border-right: none;
-	background-color: white;
-	background-color: rgba(255, 255, 255, 0.6);
+    display: inline-block;
+    width: 100%;
+    border-right: none;
+    font-size: 1.2em;
+    border-bottom: 1px solid grey;
+	background-color: rgba(255, 255, 255, 0.8);
 }
 
 #wineresults:hover {
@@ -221,6 +223,16 @@ main {
 
 #add-to-location {
 	float: right;
+    background: #3D8674;
+    border-radius: 10px;
+    padding: 1em;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#add-to-location:hover {
+	background-color: #5ABFA6
 }
 
 #choose-locations {
