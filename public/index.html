@@ -6,7 +6,6 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.min.js"></script>
     <script src="js/app.js" charset="utf-8"></script>
     <script src='js/userform.js'></script>
-    <script type="text/javascript" src='js/locationform.js'></script>
     <link rel="stylesheet" type="text/css" href="css/styles.css">
 
     <base href="/">
@@ -21,7 +20,7 @@
 				<li><a href="/">home</a>
 				<li ng-if='user'><a href="/addlocation">location</a>
 				<li ng-if='user'><a href="/search">search</a>
-				<li ng-if='user'><a href="/"  ng-click='logoutUser()'>Logout</a></li>
+				<li ng-if='user'><a href="/" ng-click='logoutUser()'>Logout</a></li>
 			</ul>
 		</nav>
 	</header>
