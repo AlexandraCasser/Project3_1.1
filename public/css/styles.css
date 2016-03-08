@@ -9,6 +9,29 @@ body {
 	background: url("/images/winebackground.jpg");
 
 }
+
+main h2 {
+	color: #716363;
+}
+
+/*****************/
+/* LOG IN STUFF  */
+/*****************/
+.user-sign-in {
+	text-align: center;
+	color: #D6BEBE;
+}
+
+.user-sign-in a {
+	color: white;
+	text-decoration: none;
+}
+
+.user-sign-in a:hover{
+	text-decoration: underline;
+}
+
+
 /*****************/
 /* HEADER NAV BAR*/
 /*****************/
@@ -67,9 +90,6 @@ main {
 	vertical-align: top;
 }
 
-main h2 {
-	color: #716363;
-}
 #home-wrapper{
 	width: 100%;
 	margin: 0 auto;
@@ -250,6 +270,13 @@ button{
 	border: 1px solid black;
 }
 
+#userSignup button:hover {
+	background: #988080;
+}
+
+#userLogin button:hover {
+	background: #988080;
+}
 /*===================*/
 /* MEDIA QUERIES     */
 /*===================*/
