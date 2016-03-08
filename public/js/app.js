@@ -5,13 +5,15 @@ var app = angular.module("wineNot", ["ngRoute", "user-form", "location-form"]);
 //this is the wineController
 // + makes query to wineAPI
 // + saves into array??
-app.controller("WineController", ['$http', function($http){
+app.controller("WineController", ['$http', '$rootScope', function($http, $rootScope){
     var controller = this;
+    this.locations = [];
     this.searchdata = "";
     this.name = "This is the wine controller";
     this.wineResults = [];
     this.showDiv = false;
     this.message = "";
+    var userID = $rootScope.user._id;
 
     this.searchWine = function(){
        $http({
@@ -32,16 +34,29 @@ app.controller("WineController", ['$http', function($http){
        }
     }
 
+    //this creates a pop up window for the user to select their location
     this.popUp = function(wine){
         console.log("this is the wine object you clicked on ", wine)
         controller.message = "Choose the location you want to add to: ";
         controller.showDiv = !controller.showDiv
     }
 
+    //this will send the location and wine name to server
     this.addWine = function(locationname){
         console.log(locationname);
         controller.message = "Wine has been added!"
     }
+
+    //grab all the locations from the user, push it into the locations array []
+    $http.get("/user/" + userID).then(function(response){
+
+        //for each location in the array, push it to this.locations[]
+        for (var i = 0; i < response.data.location.length; i++) {
+            controller.locations.push(response.data.location[i])
+            console.log(response.data.location[i])
+        }
+    })
+
 }]);
 
 app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
