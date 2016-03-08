@@ -62,25 +62,20 @@ app.controller('FormController',['$http', '$scope', '$location', '$rootScope', '
 		function(err){
 			console.log(err);
 		});
+	}; //END loginUser function
 
-		// if ($scope.username == 'John' && $scope.password == 'John') { //need to change condition to if authenticated
-		// 	$rootScope.loggedIn = true;
-		// 	$location.path('/user/login'); 	
-		// 	$http({
-		// 		method: 'GET',
-		// 		url: '/user/' + req.user.id, //or some sort of id ... 
-		// 		data: this
-		// 	}).then(function(response){
-		// 		console.log(response.data);
-		// 		console.log($scope);
-		// 	}, 
-		// 	function(err){
-		// 		console.log(err);
-		// 	});
-		// } else {
-		// alert('You are not signed up');
-		// }
-	};
+	$rootScope.logoutUser = function() {
+		var user = $rootScope.user;
+		console.log(user._id);
+		console.log('LOGOUT WORKING');
+		$http.get('/user/' + user._id + '/logout').then(function(response){
+			console.log(response);
+			$rootScope.user = null;
+		},
+		function(err){
+			console.log(err);
+		});
+	} //End log out user
 
 }]); //END Form Controller
 
@@ -115,7 +110,37 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
 		templateUrl: 'partials/userloginform.html',
 		controller: 'FormController', 
 		controllerAs: 'formCtrl'
-// 	}).
+	}).otherwise({
+		redirectTo: '/'
+	});
+}]);
+
+
+
+////////////
+///OLD CODE
+///////////
+
+
+		// if ($scope.username == 'John' && $scope.password == 'John') { //need to change condition to if authenticated
+		// 	$rootScope.loggedIn = true;
+		// 	$location.path('/user/login'); 	
+		// 	$http({
+		// 		method: 'GET',
+		// 		url: '/user/' + req.user.id, //or some sort of id ... 
+		// 		data: this
+		// 	}).then(function(response){
+		// 		console.log(response.data);
+		// 		console.log($scope);
+		// 	}, 
+		// 	function(err){
+		// 		console.log(err);
+		// 	});
+		// } else {
+		// alert('You are not signed up');
+		// }
+
+		// 	}).
 // when('/user', {
 // 		resolve: {
 // 			'check' : function($location, $rootScope) {
@@ -130,16 +155,3 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
 // 		templateUrl: 'partials/main.html',
 // 		controller: 'FormController', 
 // 		controllerAs: 'formCtrl'
-	}).otherwise({
-		redirectTo: '/'
-	});
-}]);
-
-
-
-////////////
-///OLD CODE
-///////////
-
-
-

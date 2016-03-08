@@ -14,7 +14,7 @@ mongoose.set('debug', true);
 
 
 //LOGOUT
-router.get('/logout', function(req,res){
+router.get('/:id/logout', function(req,res){
     console.log("LOGGED OUT!");
     req.logout();
     res.redirect('/');
