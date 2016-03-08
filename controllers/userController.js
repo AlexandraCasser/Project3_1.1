@@ -126,6 +126,28 @@ router.put('/:id', function(req, res) {
     });
 });
 
+router.put('/:id/:location_id', function(req,res){
+    Location.findByIdAndUpdate(req.params.location_id, req.body, function(err,location){
+        console.log(location.name);
+        console.log(req.body);
+        User.findById(req.params.id, function(err,user){
+            console.log(user);
+            console.log(user.location.length);
+            for (var i = 0; i < user.location.length; i++) {
+                if (user.location[i]._id == req.params.location_id) {
+                    // user.location[i].name = req.body;
+                    console.log('REQ BODY NAME ' + req.body.name);
+                    console.log('USER NAME ' + user.location[i].name);
+                    user.location[i].name = req.body.name;
+                }
+            }
+            user.save(function(err){
+                res.send(user);
+            })
+        });
+    });
+});
+
 //********************
 // DELETE
 //********************

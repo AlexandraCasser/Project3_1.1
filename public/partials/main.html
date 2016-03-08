@@ -22,54 +22,29 @@
 		
 
 		<div id="locations-wrapper">
-			<div class="locations-div" ng-repeat="location in locationCtrl.locations">
+				<div id="edit-locations-div" ng-if='locationCtrl.showEditDiv'>
+					EDIT LOCATION NAME: <input type='text' ng-model='locationCtrl.name' placeholder='EDIT NAME'>
+					<button ng-click='locationCtrl.editLocation(location_id)'>Edit</button>
+					<button>Delete</button>
+				</div>
+			
+			<div class="locations-div" ng-repeat="location in locationCtrl.locations track by $index">
 				<span class="location-name">{{location.name}}</span>
 				<!-- for every wine for this location, display wine, limit: 5? -->
-				<div class="wine-list">
-					<span>Wine 1</span>
-					<span class="wine-info-span"> + </span>
-					<span class="wine-info-span"> - </span>
-					<span class="wine-info-span"># available</span>
-				</div>
-				<div class="wine-list">
-					<span>Wine 2</span>
-					<span class="wine-info-span"> + </span>
-					<span class="wine-info-span"> - </span>
-					<span class="wine-info-span"># available</span>
-				</div>
-
-				<div class="wine-list">
-					<span>Wine 3</span>
-					<span class="wine-info-span"> + </span>
-					<span class="wine-info-span"> - </span>
-					<span class="wine-info-span"># available</span>
-				</div>
-
-				<div class="wine-list">
-					<span>Wine 4</span>
-					<span class="wine-info-span"> + </span>
-					<span class="wine-info-span"> - </span>
-					<span class="wine-info-span"># available</span>
-				</div>
-
-				<div class="wine-list">
-					<span>Wine 5</span>
-					<span class="wine-info-span"> + </span>
-					<span class="wine-info-span"> - </span>
-					<span class="wine-info-span"># available</span>
-				</div>
 
 				<div class="locations-button">
 					Add Wine
 				</div>
 
-				<div class="locations-button">
-					Edit Location
+				<div class="locations-button" ng-click='locationCtrl.showEdit($index)'>
+					<input type='hidden' name='index' value='$index'>Edit Location {{$index}}
 				</div>
+
+
 			</div>
 
 
-			<div class="locations-div" id="add-location-div">
+			<div class="locations-div" id="add-location-div" ng-if='locationCtrl.showAddDiv'>
 				<h1>Add new location</h1>
 				<form id='addLocation' ng-submit=''>
 					<h2>Name:</h2><br/>
