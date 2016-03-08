@@ -158,6 +158,13 @@ main h2 {
 
 .wine-info-span {
 	float: right;
+	background: black;
+	color: white;
+	font-weight: bold;
+}
+
+.wine-info-span:hover {
+	background: lightblue;
 }
 /******************/
 /* SEARCH STUFF   */
