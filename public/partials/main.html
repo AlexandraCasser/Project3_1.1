@@ -25,6 +25,7 @@
 
 	<section id="home-wrapper" ng-controller="LocationController as locationCtrl">
 
+        <!-- THIS IS THE SIDEBAR -->
         <div id="sidebar">
            <h3> NOTIFICATIONS</h3>
                 <div class="notifications-div" ng-repeat="location in locationCtrl.locations track by $index">
@@ -37,39 +38,48 @@
                 </div>
                 </div><br/>
         </div>
+        <!-- THIS ENDS SIDE BAR -->
 		
 		<div id="locations-wrapper">
 
+            <!-- THIS IS THE SEARCH BAR -->
             <form id="searchbar">
-                <label>SEARCH BY LOCATION OR WINE: </label>
+                <label>SEARCH YOUR LOCATIONS OR WINES: </label>
                 <input type="text" placeholder="search here" ng-model="searchBox">
              </form><br/>
 			
+            <!-- THIS IS THE LOCATIONS DIV -->
 			<div class="locations-div" ng-repeat="location in locationCtrl.locations | filter:searchBox track by $index">
-                <span class="location-name">{{location.name}}</span>
-				<!-- for every wine for this location, display wine, limit: 5? -->
-				<div ng-repeat="wine in location.wine track by $index" class="wine-list">		
- 					<span>{{wine.name | limitTo: 30}} </span>
- 					<span class="wine-info-span" ng-click="locationCtrl.deleteWine(wine._id, location.name, location._id, $index)"> &nbsp; x &nbsp; &nbsp; </span>
 
- 					<span class="wine-info-span" ng-click="locationCtrl.addOneWine($index, location.name)"> &nbsp; + &nbsp; &nbsp; </span>	
+                <!-- THIS IS EACH LOCATIONS DIV -->
+                <div id="each-location-wrapper">
+                    <span class="location-name">{{location.name}}</span>
+    				<!-- for every wine for this location, display wine -->
+    				<div ng-repeat="wine in location.wine track by $index" class="wine-list">		
+     					
+                        <div id="span-wine-name">
+                            <span>{{wine.name}} </span>
+                        </div>
 
- 					<span class="wine-info-span" ng-click="locationCtrl.minusOneWine($index, location.name)"> &nbsp; &nbsp;- &nbsp;&nbsp;</span>
- 					<span class="wine-info-span">&nbsp; &nbsp;{{wine.onHand}} &nbsp;</span>
-
-
-
- 				</div>
-
- 				<div id="location-buttons">
-                    <div class="locations-button">
-                        <a href="/search">Add Wine</a>
-                    </div>
-
-                    <div class="locations-button" ng-click='locationCtrl.showEdit($index)'>
-                        <input type='hidden' ng-model='index' name='index' value='$index'>Edit Location
-                    </div>
+                        <div id="wine-buttons">
+                            <span class="wine-info-span">{{wine.onHand}}</span>
+         					<span class="wine-info-span" ng-click="locationCtrl.addOneWine($index, location.name)"> + </span>	
+                            <span class="wine-info-span" ng-click="locationCtrl.minusOneWine($index, location.name)"> - </span>
+                            <span class="wine-info-span" ng-click="locationCtrl.deleteWine(wine._id, location.name, location._id, $index)"> x </span>
+                        </div>
+     				</div>
                 </div>
+
+            <!-- THESE ARE THE BUTTONS FOR THE LOCATIONS -->
+			<div id="location-buttons">
+                <div class="locations-button">
+                    <a href="/search">Add Wine</a>
+                </div>
+
+                <div class="locations-button" ng-click='locationCtrl.showEdit($index)'>
+                    <input type='hidden' ng-model='index' name='index' value='$index'>Edit Location
+                </div>
+            </div>
 
             </div>
 

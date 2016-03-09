@@ -13,7 +13,7 @@
 	  </ul>
 
 	  <div id="choose-locations" ng-if="wineCtrl.showDiv">
-	  	<h1>Where would you like to save {{wine.Name}} to?</h1><br/><br/>
+	  	<h2>Where would you like to save {{wine.Name}} to?</h2><br/><br/>
 	  	<p ng-repeat="location in wineCtrl.locations" ng-click="wineCtrl.addWine(location._id)">{{location.name}}</p><br/>
 	  	<div class="add-to-location" id="cancel-button" ng-click="wineCtrl.close()">cancel</div>
 	  </div>

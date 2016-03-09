@@ -185,7 +185,7 @@ main {
 	margin-bottom: 10px;
 	padding: 1em;
 	border-radius: 8px;
-	min-height: 300px;
+	height: 300px;
 	position: relative;
 	min-width: 393px;
 }
@@ -225,15 +225,22 @@ main {
 	display: block;
 	font-size: 20px;
 	margin-bottom: 5px;
-	border-bottom: 1px solid black;
+	border-bottom: 1px solid #F5C6C6;
 	font-weight: bold;
+}
+#each-location-wrapper{
+	display:block;
+	overflow: auto;
+	height: 200px;
 }
 
 #location-buttons{
+	color: white;
 	position: absolute;
 	bottom: 10px;
     width: 100%;
 }
+
 .locations-button {
 	display: inline-block;
 	margin: 0 auto;
@@ -243,19 +250,59 @@ main {
 	color: white;
 	margin-top: 5px;
 	bottom: 4px;
+  background: #e3a8a8;
+  background-image: -webkit-linear-gradient(top, #e3a8a8, #801A17);
+  background-image: -moz-linear-gradient(top, #e3a8a8, #801A17);
+  background-image: -ms-linear-gradient(top, #e3a8a8, #801A17);
+  background-image: -o-linear-gradient(top, #e3a8a8, #801A17);
+  background-image: linear-gradient(to bottom, #e3a8a8, #801A17);
+  -webkit-border-radius: 16;
+  -moz-border-radius: 16;
+  border-radius: 16px;
+  color: #ffffff;
+  padding: 3px 18px 4px 21px;
+  text-decoration: none;
 }
 
 .locations-button:hover {
-	background: #98D2C3;
+	background: #f0bdbd;
+  background-image: -webkit-linear-gradient(top, #f0bdbd, #cc6677);
+  background-image: -moz-linear-gradient(top, #f0bdbd, #cc6677);
+  background-image: -ms-linear-gradient(top, #f0bdbd, #cc6677);
+  background-image: -o-linear-gradient(top, #f0bdbd, #cc6677);
+  background-image: linear-gradient(to bottom, #f0bdbd, #cc6677);
+  text-decoration: none;
+  cursor: pointer;
 }
 
+.locations-button a{
+	color: white;
+}
 
+.wine-list{
+	border-bottom: 1px dotted grey;
+}
+
+#span-wine-name{
+	display: inline-block;
+	padding-top: 4px;
+    padding-bottom: 4px;
+    width: 60%;
+}
+
+#wine-buttons{
+	display: inline-block;
+	float: right;
+	margin-top: 10px;
+}
 
 .wine-info-span {
-	float: right;
-	background: black;
-	color: white;
-	font-weight: bold;
+	background: white;
+    color: #EA0000;
+    border-radius: 10px;
+    border: 1px solid black;
+    font-weight: bold;
+    padding: 2px 11px;
 }
 
 .wine-info-span:hover {
@@ -276,7 +323,8 @@ main {
 }
 
 #wine-search-wrapper h2 {
-	color: white;
+	color: #423B3B;
+    margin-bottom: -34px;
 }
 
 /* wine results li*/
@@ -319,13 +367,13 @@ main {
 #choose-locations {
 	padding: 1em;
 	text-align: center;
-	position: absolute;
-	width: 125%;
+	width: 52%;
 	background: white;
 	color: black;
 	min-height: 242px;
-	top: 13%;
-	left: -9%;
+    position: fixed;
+    top: 34%;
+    left: 24%;
 }
 
 #choose-locations p {
