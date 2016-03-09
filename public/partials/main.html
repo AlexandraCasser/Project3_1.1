@@ -26,17 +26,16 @@
 		<div id="locations-wrapper">
 			
 			<div class="locations-div" ng-repeat="location in locationCtrl.locations track by $index">
-
+                <span class="location-name">{{location.name}}</span>
 				<!-- for every wine for this location, display wine, limit: 5? -->
 				<div ng-repeat="wine in location.wine track by $index" class="wine-list">		
  					<span>{{wine.name | limitTo: 30}} </span>
  					<span class="wine-info-span" ng-click="locationCtrl.deleteWine(wine._id, location.name)"> &nbsp; x &nbsp; &nbsp; </span>
 
-
- 					<span class="wine-info-span" ng-click="locationCtrl.addOneWine($index, location.name)"> &nbsp; + &nbsp; &nbsp; INDEX {{$index}}</span>	
+ 					<span class="wine-info-span" ng-click="locationCtrl.addOneWine($index, location.name)"> &nbsp; + &nbsp; &nbsp; </span>	
 
  					<span class="wine-info-span" ng-click="locationCtrl.minusOneWine($index, location.name)"> &nbsp; &nbsp;- &nbsp;&nbsp;</span>
- 					<span class="wine-info-span" ng-model='onHand'>&nbsp; &nbsp;{{wine.onHand}} &nbsp;</span>
+ 					<span class="wine-info-span">&nbsp; &nbsp;{{wine.onHand}} &nbsp;</span>
 
 
 
@@ -44,7 +43,7 @@
 
  				<div id="location-buttons">
                     <div class="locations-button">
-                        Add Wine
+                        <a href="/search">Add Wine</a>
                     </div>
 
                     <div class="locations-button" ng-click='locationCtrl.showEdit($index)'>

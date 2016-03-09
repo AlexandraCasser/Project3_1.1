@@ -102,30 +102,33 @@ app.controller("LocationController", ["$http", "$rootScope", '$scope', function(
         console.log('I WORK!');
         console.log(index);
         console.log(name);
-        console.log($scope);
-        console.log($rootScope.user.location);
+        // console.log($scope);
+        // console.log($rootScope.user.location);
         var userID = $rootScope.user._id;
         var name = name;
         var index = index;
-        $http.put('/user/' + userID + '/' + name + '/' + index).then(function(response){
-            console.log(response);
-            // controller.onHand += 1;
-            for (var i = 0; i < $rootScope.user.location.length; i++) {
-                console.log($rootScope.user.location[i].name);
-                console.log(name);
-                if ($rootScope.user.location[i].name = name) {
-                    for (var j = 0; j < $rootScope.user.location[i].wine.length; j++) {
-                        $rootScope.user.location[i].wine[index].onHand += 1;
-                    };
-                };
-            };
 
+        $http.put('/user/' + userID + '/' + name + '/' + index).then(function(response){
+            // console.log(response.data.location);
+            // console.log($scope.locationCtrl.locations);
+            for (var i = 0; i < $scope.locationCtrl.locations.length; i++) {
+                // console.log($scope.locationCtrl.locations.length);
+                // console.log($scope.locationCtrl.locations[i]);
+                var locals = $scope.locationCtrl.locations[i];
+                console.log(locals);
+                if (locals.name == name) {
+                    console.log("STUFF -- SHOULD HAPPEN ONCE");
+                    console.log($scope.locationCtrl.locations[i].wine[index].onHand);
+                    console.log(response.data.location[i].wine[index].onHand);
+                    $scope.locationCtrl.locations[i].wine[index].onHand = response.data.location[i].wine[index].onHand;
+                };
+            }
         },
         function(err){
             console.log(err);
-        })
-
-    }
+        });
+        
+    } //end add one wine
 
 
     this.minusOneWine = function(index, name) {
