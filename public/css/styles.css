@@ -284,16 +284,18 @@ main {
 }
 
 #span-wine-name{
-	display: inline-block;
-	padding-top: 4px;
-    padding-bottom: 4px;
+    display: inline-block;
+    padding-top: 5px;
+    padding-bottom: 5px;
     width: 60%;
+    vertical-align: top;
 }
 
 #wine-buttons{
 	display: inline-block;
-	float: right;
-	margin-top: 10px;
+    float: right;
+    vertical-align: top;
+    padding-top: 5px;
 }
 
 .wine-info-span {
@@ -496,6 +498,9 @@ button{
 	#searchbar{
 		margin-top: 0px;
 	}
+	#location-buttons{
+		margin-left: 77px;
+	}
 }
 
 /*for devices 1280px and smaller*/
@@ -503,5 +508,8 @@ button{
 @media (max-width: 1280px){
 	.locations-div{
 		width: 90%;
+	}
+	#location-buttons{
+		margin-left: 94px;
 	}
 }
