@@ -17,6 +17,7 @@ app.controller("WineController", ['$http', '$rootScope', '$location', function($
     this.wine = {};
     this.location_id = "";
 
+
     this.searchWine = function(){
        $http({
         method: 'POST',
@@ -54,7 +55,7 @@ app.controller("WineController", ['$http', '$rootScope', '$location', function($
         $http.post('/user/' + userID + '/addwine', {locationid: controller.location_id, wine: controller.wine})
             .then(function(response){
                 
-                controller.message= "This has been added to your collection!"
+                controller.message = "This has been added to your collection!"
               
             }),
             function(err){

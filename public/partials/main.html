@@ -73,9 +73,20 @@
         <div ng-if="locationCtrl.showDiv" class="modal-bg"></div>
 
 
-        <div id="sidebar">
-            Notifications GO HERE
+        <div id="sidebar" ng-controller="LocationController as locationCtrl">
+            Notifications
+                <div class="notifications-div" ng-repeat="location in locationCtrl.locations track by $index">
+                <span class="location-name">{{location.name}}</span>
+                <!-- for every wine for this location, display wine, limit: 5? -->
+                <div ng-repeat="wine in location.wine track by $index" class="wine-list" ng-if="wine.onHand <= 1">       
+                    <span>{{wine.name | limitTo: 30}} </span>
+                    <br>
+                    <span>{{wine.onHand}} bottles</span>
+                    <span> <a href="{{wine.url}}">Reorder wine</a> </span>
+                </div>
+                </div>
         </div>
+
         </section>
     </section>
 </main>
