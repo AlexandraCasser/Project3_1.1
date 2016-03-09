@@ -7,13 +7,15 @@ body {
 	font-family: Arial, sans-serif;
 	height: 100%;
 	background: url("/images/winebackground.jpg");
-	font-family: 'Questrial', sans-serif;
+	font-family: 'News Cycle', sans-serif;
+
 }
 
 main h2 {
 	color: #E8E8E8;
     padding-bottom: 1em;
     border-bottom: 1px solid white;
+    font-family: 'Poiret One', sans-serif;
 }
 
 .modal-bg { 
@@ -25,6 +27,9 @@ main h2 {
   z-index:10; 
 }
 
+a {
+	text-decoration: none;
+}
 /*****************/
 /* LOG IN STUFF  */
 /*****************/
@@ -127,10 +132,10 @@ main {
 	box-sizing: border-box;
 	display: inline-block;
 	width: 25%;
-	background: #DCDEB1;
+	background: #DADADA;
 	margin: 0 auto;
 	height: 80%;
-/*	margin-left: 5%;*/
+	margin-top: 81px;
 	overflow: auto;
 }
 
@@ -142,11 +147,14 @@ main {
 #sidebar h3{
 	border-bottom: none;
     text-align: center;
-    color: #E86C6D;
+	color: #BD0002;
     margin-bottom: 1em;
     margin-top: 1em;
 }
 
+#sidebar a:hover {
+	text-decoration: underline;
+}
 .notifications-div {
 	vertical-align: top;
 	display: inline-block;
@@ -218,6 +226,7 @@ main {
 	font-size: 20px;
 	margin-bottom: 5px;
 	border-bottom: 1px solid black;
+	font-weight: bold;
 }
 
 #location-buttons{
@@ -329,6 +338,10 @@ main {
 	font-weight: bold;
 }
 
+/******************/
+/* FORM STYLING   */
+/******************/
+
 form {
 /*	background-color: #A1BCC5;*/
 	margin: 0 auto;
@@ -338,6 +351,17 @@ form {
 	margin-bottom: 30px;
 	text-align: center;
 	color: white;
+}
+
+#searchbar {
+	margin: 0 auto;
+	padding: 1em;
+	width: 400px;
+	text-align: center;
+	color: white;
+	margin-left: 68px;
+	margin-top: -22px;
+	margin-bottom: -12px;
 }
 
 #addLocation {
@@ -420,6 +444,9 @@ button{
 	}
 	#choose-locations{
 		top: 6%;
+	}
+	#searchbar{
+		margin-top: 0px;
 	}
 }
 

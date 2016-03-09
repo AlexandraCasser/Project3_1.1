@@ -33,7 +33,7 @@
                 <div ng-repeat="wine in location.wine track by $index" class="wine-list" ng-if="wine.onHand <= 1">       
                 <p>{{wine.name}} </p>
                 <br>
-                <p id="on-hand">{{wine.onHand}} bottles &nbsp; &nbsp;  <a href="{{wine.url}}">Reorder wine</a> </p><br/>
+                <p id="on-hand"><strong>{{wine.onHand}} remaining &nbsp; &nbsp;  </strong><a href="{{wine.url}}">Reorder wine</a> </p><br/>
                 </div>
                 </div><br/>
         </div>
@@ -41,8 +41,8 @@
 		<div id="locations-wrapper">
 
             <form id="searchbar">
-                <label>Search by Location: </label>
-                <input id="searchbar"type="text" placeholder="search here" ng-model="searchBox">
+                <label>SEARCH BY LOCATION OR WINE: </label>
+                <input type="text" placeholder="search here" ng-model="searchBox">
              </form><br/>
 			
 			<div class="locations-div" ng-repeat="location in locationCtrl.locations | filter:searchBox track by $index">
