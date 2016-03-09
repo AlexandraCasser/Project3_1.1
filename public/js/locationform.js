@@ -134,7 +134,34 @@ app.controller("LocationController", ["$http", "$rootScope", '$scope', function(
     this.minusOneWine = function(index, name) {
         console.log("I work, too!  And I'm the minus function");
         console.log(index);
-    }
+        console.log(name);
+        // console.log($scope);
+        // console.log($rootScope.user.location);
+        var userID = $rootScope.user._id;
+        var name = name;
+        var index = index;
+
+        $http.put('/user/decrement/' + userID + '/' + name + '/' + index).then(function(response){
+            console.log(response.data);
+            console.log($scope.locationCtrl.locations);
+            for (var i = 0; i < $scope.locationCtrl.locations.length; i++) {
+                // console.log($scope.locationCtrl.locations.length);
+                // console.log($scope.locationCtrl.locations[i]);
+                var locals = $scope.locationCtrl.locations[i];
+                console.log(locals);
+                if (locals.name == name) {
+                    console.log("STUFF -- SHOULD HAPPEN ONCE");
+                    console.log($scope.locationCtrl.locations[i].wine[index].onHand);
+                    console.log(response.data.location[i].wine[index].onHand);
+                    $scope.locationCtrl.locations[i].wine[index].onHand = response.data.location[i].wine[index].onHand;
+                };
+            }
+        },
+        function(err){
+            console.log(err);
+        });
+        
+    }//end minus one wine
 
     this.deleteWine = function(wine_id, location_name){
         console.log("This is the wine id ", wine_id);
