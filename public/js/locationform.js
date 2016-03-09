@@ -98,35 +98,37 @@ app.controller("LocationController", ["$http", "$rootScope", '$scope', function(
     }
 
 
-    this.addOneWine = function(index, name, onHand) {
+    this.addOneWine = function(index, name) {
         console.log('I WORK!');
         console.log(index);
         console.log(name);
-        console.log(onHand);
         // console.log($scope);
         // console.log($rootScope.user.location);
         var userID = $rootScope.user._id;
         var name = name;
         var index = index;
         $http.put('/user/' + userID + '/' + name + '/' + index).then(function(response){
-            console.log(response);
-            // controller.onHand += 1;
-            // for (var i = 0; i < $rootScope.user.location.length; i++) {
-            //     console.log($rootScope.user.location[i].name);
-            //     console.log(name);
-            //     if ($rootScope.user.location[i].name = name) {
-            //         for (var j = 0; j < $rootScope.user.location[i].wine.length; j++) {
-            //             $rootScope.user.location[i].wine[index].onHand += 1;
-            //         };
-            //     };
-            // };
-
+            console.log(response.data.location);
+            $http.get('/user/' + userID).then(function(response){
+                console.log($scope.locationCtrl.locations);
+                for (var i = 0; i < $scope.locationCtrl.locations.length; i++) {
+                    console.log($scope.locationCtrl.locations.length);
+                    if ($scope.locationCtrl.locations[i].name = name) {
+                        console.log($scope.locationCtrl.locations[i].wine[index].onHand);
+                        console.log(response.data.location[i].wine[index].onHand);
+                        $scope.locationCtrl.locations[i].wine[index].onHand = response.data.location[i].wine[index].onHand;
+                    };
+                }
+            },
+            function(err){
+                console.log(err);
+            });
         },
         function(err){
             console.log(err);
-        })
-        controller.onHand += 1;
-    }
+        });
+        
+    } //end add one wine
 
 
     this.minusOneWine = function(index, name) {
