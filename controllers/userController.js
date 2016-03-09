@@ -229,10 +229,14 @@ router.put('/decrement/:id/:location_name/:wine_index', function(req,res){
                 // console.log(user.location[i].wine.length);
                 // console.log(user.location[i].wine[req.params.wine_index]);
                 // console.log(user.location[i].wine[req.params.wine_index].onHand);
-                user.location[i].wine[req.params.wine_index].onHand -= 1;
-                user.save(function(err){
+                if (user.location[i].wine[req.params.wine_index].onHand == 0) {
                     res.send(user);
-                });
+                } else {
+                user.location[i].wine[req.params.wine_index].onHand -= 1;
+                    user.save(function(err){
+                        res.send(user);
+                    });
+                }
             };
         };
     });
