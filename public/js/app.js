@@ -26,7 +26,7 @@ app.controller("WineController", ['$http', '$rootScope', '$location', function($
             //returns input from searchbar
             console.log("This is the user search query", response.data)
             //this searches through wineAPI using user input in search bar (response.data)
-            $http.get('http://services.wine.com/api/beta2/service.svc/JSON/catalog?apikey=5ec0a9229ceff7dfc8d442d2f2ad10b4&search=' + response.data)
+            $http.get('https://services.wine.com/api/beta2/service.svc/JSON/catalog?apikey=5ec0a9229ceff7dfc8d442d2f2ad10b4&search=' + response.data)
                 .then(function(response){
                  controller.wineResults = response.data.Products.List;
                  console.log(response.data.Products.List)

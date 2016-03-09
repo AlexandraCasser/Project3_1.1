@@ -133,5 +133,10 @@ app.controller("LocationController", ["$http", "$rootScope", '$scope', function(
         console.log(index);
     }
 
+    this.deleteWine = function(wine_id, location_name){
+        console.log("This is the wine id ", wine_id);
+        console.log("This is the location name: ", location_name)
+    }
+
 }]);
 
