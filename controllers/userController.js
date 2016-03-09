@@ -262,6 +262,7 @@ router.delete('/:id/:location_id/:wineid', function(req, res){
                             console.log("here's what location looks like now", user.location[i])
                             //save the user
                             user.save();
+                            res.send(user.location[i].wine)
                         }//ends if statement
                     }//ends wine for loop
                 }//ends 1st if statement
