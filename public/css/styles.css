@@ -7,11 +7,13 @@ body {
 	font-family: Arial, sans-serif;
 	height: 100%;
 	background: url("/images/winebackground.jpg");
-
+	font-family: 'Questrial', sans-serif;
 }
 
 main h2 {
-	color: #EACCCC
+	color: #E8E8E8;
+    padding-bottom: 1em;
+    border-bottom: 1px solid white;
 }
 
 .modal-bg { 
@@ -30,6 +32,7 @@ main h2 {
 	text-align: center;
 	color: #D6BEBE;
 	margin-top: 30px;
+	font-family: 'Poiret One', sans-serif;
 }
 
 .user-sign-in a {
@@ -50,8 +53,8 @@ header {
 /*	position: fixed;*/
 	width: 100%;
 	padding: 1em;
-	background: #3D8674;
-	box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+	background: rgb(228, 40, 40, 0.5);
+	background: rgba(228, 40, 40, 0.5)
 }
 
 header a {
@@ -59,10 +62,13 @@ header a {
 	color: white;
 }
 h1{
-	font-size: 18px;
+	font-family: 'Great Vibes', cursive;
+	font-size: 5em;
 	display: inline;
+	color: white;
 }
 h3{
+
 	margin-top:2em;
 	text-align: center;
 }
@@ -90,6 +96,8 @@ li:hover{
 
 #user-sign-in h2{
 	text-align: center;
+	padding-bottom: 1em;
+    border-bottom: 1px solid white;
 }
 /*****************/
 /* MAIN PAGE     */
@@ -158,6 +166,7 @@ main {
 	border-radius: 8px;
 	min-height: 300px;
 	position: relative;
+	min-width: 393px;
 }
 
 #edit-locations-div {
@@ -186,9 +195,6 @@ main {
 	margin-left: -30px; 
 	margin-top: -10px; 
 } 
-
-
-
 
 #add-location-div:hover {
 	background: lightblue;
@@ -327,6 +333,10 @@ form {
 	padding: 0;
 }
 
+#addLocation h2{
+	color: black;
+}
+
 input {
 	font-size: 16px;
 	width: 100%;
@@ -344,6 +354,9 @@ button{
 
 #userSignup button:hover {
 	background: #988080;
+}
+#userLogin {
+	font-family: 'Poiret One', sans-serif;
 }
 
 #userLogin button:hover {
@@ -394,5 +407,13 @@ button{
 	}
 	#choose-locations{
 		top: 6%;
+	}
+}
+
+/*for devices 1280px and smaller*/
+/*all non-laptop views*/
+@media (max-width: 1280px){
+	.locations-div{
+		width: 90%;
 	}
 }

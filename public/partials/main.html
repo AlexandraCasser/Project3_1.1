@@ -1,7 +1,10 @@
 <main>
 <!-- JOHNS USER LOGIN FORM -->
 <div class="user-sign-in" ng-if="!user" ng-controller='FormController as formCtrl'>
-	<h1>Sign up and track your wine!</h1>
+
+    <h1>Wine Not?</h1><br/>
+	
+    <h2>SIGN UP AND TRACK YOUR WINE!</h2>
 	<form id='userSignup'>
 		<h3>USERNAME:</h3><br/>
 		<input type='text' ng-model='username' id='username' placeholder='ENTER YOUR NAME'/>
@@ -59,9 +62,8 @@
 
 
             <div class="locations-div" id="add-location-div" ng-if='locationCtrl.showAddDiv'>
-                <h1>Add new location</h1>
                 <form id='addLocation' ng-submit=''>
-                    <h2>Name:</h2><br/>
+                    <h2>Add a New Location:</h2><br/>
                     <input type='text' ng-model='locationCtrl.name' placeholder='Location Name'/><br/>
                     <button ng-click='locationCtrl.addLocation()'>Add</button>
                 </form>
