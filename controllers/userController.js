@@ -233,6 +233,11 @@ router.delete('/:id/:location_id', function(req, res) {
     });
 });
 
+//this will delete the wine
+router.delete('/:id/:wineid', function(req, res){
+
+})
+
 // route middleware to make sure a user is logged in
 function isLoggedIn(req, res, next) {
     //if user exists, do this
