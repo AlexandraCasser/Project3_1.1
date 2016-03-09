@@ -25,9 +25,7 @@ app.controller('FormController',['$http', '$scope', '$location', '$rootScope', '
             $http.get("/user/" + userID).then(function(response){
                 console.log("This is the response.data.username ", response.data.username);
                 console.log("This is the username through Scope", $scope.username);
-                $rootScope.user = response.data;
-                console.log("This is dude Name", $rootScope.dudeName)
-               
+                $rootScope.user = response.data;  
             })
         },
         function(err){

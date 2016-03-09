@@ -154,13 +154,16 @@ app.controller("LocationController", ["$http", "$rootScope", '$scope', function(
                     console.log($scope.locationCtrl.locations[i].wine[index].onHand);
                     console.log(response.data.location[i].wine[index].onHand);
                     $scope.locationCtrl.locations[i].wine[index].onHand = response.data.location[i].wine[index].onHand;
-                };
-            }
-        },
+
+                }//ends if statement
+            }//ends for loop
+        },//ends put request
         function(err){
             console.log(err);
         });
         
+
+
     }//end minus one wine
 
     //this deletes the wine from the user's locations
@@ -184,7 +187,7 @@ app.controller("LocationController", ["$http", "$rootScope", '$scope', function(
                 console.log(locals);
                 if (locals.name == location_name) {
                     console.log("STUFF -- SHOULD HAPPEN ONCE");
-                    console.log($scope.locationCtrl.locations[i].wine.splice(index, 1));
+                    $scope.locationCtrl.locations[i].wine.splice(index, 1);
                 };
             }
         }), function(err){
