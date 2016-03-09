@@ -22,10 +22,14 @@
 
 	<section id="home-wrapper" ng-controller="LocationController as locationCtrl">
 		
-
 		<div id="locations-wrapper">
+
+            <form id="searchbar">
+                <label>Search by Location: </label>
+                <input id="searchbar"type="text" placeholder="search here" ng-model="searchBox">
+             </form><br/>
 			
-			<div class="locations-div" ng-repeat="location in locationCtrl.locations track by $index">
+			<div class="locations-div" ng-repeat="location in locationCtrl.locations | filter:searchBox track by $index">
                 <span class="location-name">{{location.name}}</span>
 				<!-- for every wine for this location, display wine, limit: 5? -->
 				<div ng-repeat="wine in location.wine track by $index" class="wine-list">		
