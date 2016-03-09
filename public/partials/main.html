@@ -30,7 +30,7 @@
 				<!-- for every wine for this location, display wine, limit: 5? -->
 				<div ng-repeat="wine in location.wine track by $index" class="wine-list">		
  					<span>{{wine.name | limitTo: 30}} </span>
- 					<span class="wine-info-span" ng-click="locationCtrl.deleteWine(wine._id, location.name, location._id)"> &nbsp; x &nbsp; &nbsp; </span>
+ 					<span class="wine-info-span" ng-click="locationCtrl.deleteWine(wine._id, location.name, location._id, $index)"> &nbsp; x &nbsp; &nbsp; </span>
 
  					<span class="wine-info-span" ng-click="locationCtrl.addOneWine($index, location.name)"> &nbsp; + &nbsp; &nbsp; </span>	
 

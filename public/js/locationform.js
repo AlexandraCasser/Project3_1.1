@@ -164,7 +164,7 @@ app.controller("LocationController", ["$http", "$rootScope", '$scope', function(
     }//end minus one wine
 
     //this deletes the wine from the user's locations
-    this.deleteWine = function(wine_id, location_name, location_id){
+    this.deleteWine = function(wine_id, location_name, location_id, index){
         // var locationID = $scope.locationCtrl.locations[index]._id;
         console.log("This is the wine id ", wine_id);
         console.log("This is the location id: ", location_id)
@@ -177,11 +177,16 @@ app.controller("LocationController", ["$http", "$rootScope", '$scope', function(
         }).then( 
             function(response){
             console.log("This is the response ", response)
-            // console.log("This is controller.infos ", controller.infos)
-            //this removes the information of the region at the given index
-            // controller.infos.splice(index, 1)
-            //this removes the region from the list, if empty
-            // controller.regions.pop(response.data.region)
+
+            //for every location, search for particular winebyID, pop it off
+             for (var i = 0; i < $scope.locationCtrl.locations.length; i++) {
+                var locals = $scope.locationCtrl.locations[i];
+                console.log(locals);
+                if (locals.name == location_name) {
+                    console.log("STUFF -- SHOULD HAPPEN ONCE");
+                    console.log($scope.locationCtrl.locations[i].wine.splice(index, 1));
+                };
+            }
         }), function(err){
             console.log(err)
         }
