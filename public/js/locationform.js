@@ -107,22 +107,22 @@ app.controller("LocationController", ["$http", "$rootScope", '$scope', function(
         var userID = $rootScope.user._id;
         var name = name;
         var index = index;
+
         $http.put('/user/' + userID + '/' + name + '/' + index).then(function(response){
-            console.log(response.data.location);
-            $http.get('/user/' + userID).then(function(response){
-                console.log($scope.locationCtrl.locations);
-                for (var i = 0; i < $scope.locationCtrl.locations.length; i++) {
-                    console.log($scope.locationCtrl.locations.length);
-                    if ($scope.locationCtrl.locations[i].name = name) {
-                        console.log($scope.locationCtrl.locations[i].wine[index].onHand);
-                        console.log(response.data.location[i].wine[index].onHand);
-                        $scope.locationCtrl.locations[i].wine[index].onHand = response.data.location[i].wine[index].onHand;
-                    };
-                }
-            },
-            function(err){
-                console.log(err);
-            });
+            // console.log(response.data.location);
+            // console.log($scope.locationCtrl.locations);
+            for (var i = 0; i < $scope.locationCtrl.locations.length; i++) {
+                // console.log($scope.locationCtrl.locations.length);
+                // console.log($scope.locationCtrl.locations[i]);
+                var locals = $scope.locationCtrl.locations[i];
+                console.log(locals);
+                if (locals.name == name) {
+                    console.log("STUFF -- SHOULD HAPPEN ONCE");
+                    console.log($scope.locationCtrl.locations[i].wine[index].onHand);
+                    console.log(response.data.location[i].wine[index].onHand);
+                    $scope.locationCtrl.locations[i].wine[index].onHand = response.data.location[i].wine[index].onHand;
+                };
+            }
         },
         function(err){
             console.log(err);
