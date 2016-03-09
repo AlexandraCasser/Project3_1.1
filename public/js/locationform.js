@@ -163,9 +163,28 @@ app.controller("LocationController", ["$http", "$rootScope", '$scope', function(
         
     }//end minus one wine
 
-    this.deleteWine = function(wine_id, location_name){
+    //this deletes the wine from the user's locations
+    this.deleteWine = function(wine_id, location_name, location_id){
+        // var locationID = $scope.locationCtrl.locations[index]._id;
         console.log("This is the wine id ", wine_id);
+        console.log("This is the location id: ", location_id)
         console.log("This is the location name: ", location_name)
+
+        $http({
+            method: 'DELETE',
+            url: '/user/' + userID + "/" + location_id + "/" + wine_id,
+            data: this
+        }).then( 
+            function(response){
+            console.log("This is the response ", response)
+            // console.log("This is controller.infos ", controller.infos)
+            //this removes the information of the region at the given index
+            // controller.infos.splice(index, 1)
+            //this removes the region from the list, if empty
+            // controller.regions.pop(response.data.region)
+        }), function(err){
+            console.log(err)
+        }
     }
 
 }]);
