@@ -20,22 +20,6 @@ router.get('/:id/logout', function(req,res){
     res.redirect('/');
 });
 
-//WORK ON THIS
-// router.get('/validate', function(req, res) {
-//     if (req.isAuthenticated()) {
-//         res.redirect('/users/' + req.user.id);
-//     } else {
-//         res.redirect('/users');
-//     }
-// });
-
-// // JSON
-// router.get('/json', function(req, res) {
-//     User.find({}, function(err, data) {
-//         res.send(data);
-//     });
-// });  
-
 //HOMEPAGE
 router.get("/:id", function(req, res){
     User.findById(req.params.id, function(err, user){
@@ -43,17 +27,6 @@ router.get("/:id", function(req, res){
         res.send(user)
     })
 });
-// router.get("/:id", function(req, res) {
-//     //if user logged in matches req.params.id
-//     // res.locals.login = req.isAuthenticated();
-//         //find THAT user by ID
-//         console.log("This is the req.params.id", req.params.id)
-//         User.findById(req.params.id, function(err, data) { //curlies?
-//             //send back user object
-//             res.send(data);
-//             console.log("This is the user", data);
-//         });
-// });
 
 //********************
 // CREATE 
@@ -74,13 +47,6 @@ router.post('/login', passport.authenticate('local-login',{
     console.log('LOGGGED IN, YA');
     res.send(req.user);
 });
-
-//Post new user
-// router.post('/', passport.authenticate('local-signup', {
-//     failureRedirect : '/users' // redirect to the signup page if error
-//             }), function(req, res) {
-//         res.redirect('/users/' + req.user.id);  //from passport.js
-// });
 
 //search results
 router.post('/search', function(req, res){
@@ -111,15 +77,6 @@ router.post('/:id/location', function(req, res){
         })
     });
 })
-
-//edit location
-// router.put('/:id/location', function(req, res){
-//         console.log(req.params.id);
-//         Location.findByIdAndUpdate(req.params.id, req.body, function(err, user){
-//     res.redirect('/users/' + req.params.id);
-//     });
-// });
-
 
 //this saves the selected wine and selected location to save to DB
 router.post('/:id/addwine', function(req, res){
@@ -319,3 +276,47 @@ function isLoggedIn(req, res, next) {
 };
 
 module.exports = router;
+
+//////////
+//OLD CODE
+//////////
+//WORK ON THIS
+// router.get('/validate', function(req, res) {
+//     if (req.isAuthenticated()) {
+//         res.redirect('/users/' + req.user.id);
+//     } else {
+//         res.redirect('/users');
+//     }
+// });
+
+// // JSON
+// router.get('/json', function(req, res) {
+//     User.find({}, function(err, data) {
+//         res.send(data);
+//     });
+// });  
+// router.get("/:id", function(req, res) {
+//     //if user logged in matches req.params.id
+//     // res.locals.login = req.isAuthenticated();
+//         //find THAT user by ID
+//         console.log("This is the req.params.id", req.params.id)
+//         User.findById(req.params.id, function(err, data) { //curlies?
+//             //send back user object
+//             res.send(data);
+//             console.log("This is the user", data);
+//         });
+// });
+
+//Post new user
+// router.post('/', passport.authenticate('local-signup', {
+//     failureRedirect : '/users' // redirect to the signup page if error
+//             }), function(req, res) {
+//         res.redirect('/users/' + req.user.id);  //from passport.js
+// });
+//edit location
+// router.put('/:id/location', function(req, res){
+//         console.log(req.params.id);
+//         Location.findByIdAndUpdate(req.params.id, req.body, function(err, user){
+//     res.redirect('/users/' + req.params.id);
+//     });
+// });
