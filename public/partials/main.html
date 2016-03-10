@@ -12,7 +12,7 @@
 		<input type='password' ng-model='password' id='password' placeholder='ENTER YOUR PASSWORD'/><br/>
 		<button ng-click='addUser()'>Signup</button>
 	</form>
-	<a href="/user/login" ng-class="animate swing">Already a Wino? Log in here!</a>
+	<a href="/user/login">Already a Wino? Log in here!</a>
 
 </div>
 <!-- JOHNS USER LOGIN FORM --> 
@@ -66,10 +66,6 @@
 
                         <div id="wine-buttons">
                             <p id="p1" class='animated pulse'>{{wine.onHand}}</p>
-<!--          					<span class="wine-info-span" id="span2" ng-click="locationCtrl.addOneWine($index, location.name)"> + </span>	
-                            <span class="wine-info-span" id="span3" ng-click="locationCtrl.minusOneWine($index, location.name)"> - </span>
-                            <span class="wine-info-span" id="span4" ng-click="locationCtrl.deleteWine(wine._id, location.name, location._id, $index)"> x </span> -->
-
                             <img id="increase" src="/images/add.jpg" ng-click="locationCtrl.addOneWine($index, location.name)">
                             <img id="decrease" src="/images/minus.jpg" ng-click="locationCtrl.minusOneWine($index, location.name)">
                             <img id="delete" src="/images/delete.jpg" ng-click="locationCtrl.deleteWine(wine._id, location.name, location._id, $index)">
@@ -101,20 +97,22 @@
                 </form>
             </div>
             <!-- THIS ENDS THE ADD NEW LOCATION -->
-        </div> <!-- ******************* -->
+
+        </div> <!-- ******************* ends location wrapper -->
+
+            <!-- THIS IS THE EDIT LOCATIONS DIV -->
+            <div id="edit-locations-div" ng-if='locationCtrl.showEditDiv'>
+                <span class="location-name">EDIT LOCATION NAME: </span>
+                <input type='text' ng-model='locationCtrl.name' placeholder='EDIT NAME'>
+                <button ng-click='locationCtrl.editLocation(index)'>Edit</button>
+                <button ng-click='locationCtrl.deleteLocation(index)'>Delete</button>
+                <button ng-click="locationCtrl.cancel()">Cancel</button>
+            </div>
+            <!-- THIS ENDS THE EDIT LOCATIONS DIV -->
+
+            <div ng-if="locationCtrl.showDiv" class="modal-bg"></div>
 
 
-        <!-- THIS IS THE EDIT LOCATIONS DIV -->
-        <div id="edit-locations-div" ng-if='locationCtrl.showEditDiv'  class='animate bounceInDown' >
-            <span class="location-name">EDIT LOCATION NAME: </span>
-            <input type='text' ng-model='locationCtrl.name' placeholder='EDIT NAME'>
-            <button ng-click='locationCtrl.editLocation(index)'>Edit</button>
-            <button ng-click='locationCtrl.deleteLocation(index)'>Delete</button>
-            <button ng-click="locationCtrl.cancel()">Cancel</button>
-        </div>
-        <!-- THIS ENDS THE EDIT LOCATIONS DIV -->
-
-        <div ng-if="locationCtrl.showDiv" class="modal-bg"></div>
 
         </section>
     </section>

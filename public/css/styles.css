@@ -55,7 +55,7 @@ a {
 /*****************/
 
 header {
-/*	position: fixed;*/
+	/*position: fixed;*/
 	width: 100%;
 	padding: 1em;
 	background: rgb(228, 40, 40, 0.5);
@@ -190,7 +190,7 @@ main {
 	min-width: 393px;
 }
 
-#edit-locations-div {
+/*#edit-locations-div {
     display: inline-block;
     box-sizing: border-box;
     margin-left: 1em;
@@ -204,6 +204,20 @@ main {
     position: fixed;
     top: 13%;
     left: 30%;
+}*/
+
+#edit-locations-div{
+    border: solid 1px black;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    background-color: white;
+/*    z-index: 100;*/
+    padding: 1em;
+    height: 400px;
+/*    margin-top: -200px;
+    margin-left: -300px;*/
+    width: 600px;
 }
 
 
