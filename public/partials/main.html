@@ -58,7 +58,7 @@
                 <div id="each-location-wrapper" class='animated fadeInUp'>
                     <span class="location-name">{{location.name}}</span>
     				<!-- for every wine for this location, display wine -->
-    				<div ng-repeat="wine in location.wine track by $index" class="wine-list" class='animated fadeInUp'>		
+    				<div ng-repeat="wine in location.wine | orderBy:'name' track by $index " class="wine-list" class='animated fadeInUp'>		
      					
                         <div id="span-wine-name">
                             <span>{{wine.name}} </span>
