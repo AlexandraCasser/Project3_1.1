@@ -284,27 +284,33 @@ main {
 }
 
 #span-wine-name{
-    display: inline-block;
+	display: inline-block;
     padding-top: 5px;
     padding-bottom: 5px;
     width: 60%;
     vertical-align: top;
 }
 
+#p1{
+    display: inline-block;
+    font-size: 33px;
+    color: #F59BC2;
+}
+
+img {
+	display: inline-block;
+}
+
 #wine-buttons{
 	display: inline-block;
-    float: right;
     vertical-align: top;
-    padding-top: 5px;
+    margin-top: 5px;
 }
 
 .wine-info-span {
 	background: white;
     color: #EA0000;
-    border-radius: 10px;
-    border: 1px solid black;
     font-weight: bold;
-    padding: 2px 11px;
     cursor: pointer;
 }
 
@@ -516,4 +522,3 @@ button{
 	#location-buttons{
 		margin-left: 94px;
 	}
-}
