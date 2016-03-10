@@ -106,9 +106,11 @@
 
         <!-- THIS IS THE EDIT LOCATIONS DIV -->
         <div id="edit-locations-div" ng-if='locationCtrl.showEditDiv'>
-            EDIT LOCATION NAME: <input type='text' ng-model='locationCtrl.name' placeholder='EDIT NAME'>
+            <span class="location-name">EDIT LOCATION NAME: </span>
+            <input type='text' ng-model='locationCtrl.name' placeholder='EDIT NAME'>
             <button ng-click='locationCtrl.editLocation(index)'>Edit</button>
             <button ng-click='locationCtrl.deleteLocation(index)'>Delete</button>
+            <button ng-click="locationCtrl.cancel()">Cancel</button>
         </div>
         <!-- THIS ENDS THE EDIT LOCATIONS DIV -->
 

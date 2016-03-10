@@ -54,6 +54,10 @@ app.controller("LocationController", ["$http", "$rootScope", '$scope', function(
     }
 
 
+    this.cancel = function(){
+        this.showEditDiv = false;
+    }
+
     this.editLocation = function(index) {
 
 
@@ -194,6 +198,7 @@ app.controller("LocationController", ["$http", "$rootScope", '$scope', function(
             console.log(err)
         }
     }
+
 
 }]);
 
