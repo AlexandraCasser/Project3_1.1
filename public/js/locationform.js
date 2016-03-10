@@ -55,7 +55,8 @@ app.controller("LocationController", ["$http", "$rootScope", '$scope', function(
 
 
     this.cancel = function(){
-        this.showEditDiv = false;
+        this.showEditDiv = !this.showEditDiv;
+        this.showAddDiv = !this.showAddDiv;
     }
 
     this.editLocation = function(index) {
