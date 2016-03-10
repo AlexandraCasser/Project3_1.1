@@ -488,7 +488,7 @@ button:hover{
 	.locations-div{
 		margin-bottom: 20px;
 		margin-left: 0px;
-		width: 100%;
+		max-width: 349px;
 
 	}
 	#choose-locations{
