@@ -470,7 +470,7 @@ button:hover{
 @media (max-width: 480px) {
 /*@media (max-width: 320px) {*/
 	.user-sign-in a {
-		font-size: 2em;
+		font-size: 1em;
 	}
 	h1{
 		font-size: 3em;
@@ -488,7 +488,7 @@ button:hover{
 	.locations-div{
 		margin-bottom: 20px;
 		margin-left: 0px;
-		max-width: 349px;
+		min-width: 297px;
 
 	}
 	#choose-locations{
@@ -498,7 +498,7 @@ button:hover{
 		margin: 0 auto;
 	}
 	form{
-		margin-top: -20px;
+		margin-top: -79px;
 		width: 80%;
 	}
 	input {
