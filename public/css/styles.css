@@ -468,6 +468,13 @@ button:hover{
 
 /*for devices 480px and smaller*/
 @media (max-width: 480px) {
+/*@media (max-width: 320px) {*/
+	.user-sign-in a {
+		font-size: 2em;
+	}
+	h1{
+		font-size: 3em;
+	}
 	#sidebar {
 		display: block;
 		width: 100%;
@@ -480,6 +487,7 @@ button:hover{
 	}
 	.locations-div{
 		margin-bottom: 20px;
+		margin-left: 0px;
 		width: 100%;
 
 	}
@@ -488,6 +496,18 @@ button:hover{
 	}
 	#location-buttons{
 		margin: 0 auto;
+	}
+	form{
+		margin-top: -20px;
+		width: 80%;
+	}
+	input {
+	    font-size: 39px;
+	    width: 100%;
+	    height: 50px;
+	}
+	#searchbar{
+		margin-left: 0;
 	}
 }
 
