@@ -1,4 +1,4 @@
-<main>
+<main  class='animated fadeInUp'>
 <!-- JOHNS USER LOGIN FORM -->
 <div class="user-sign-in" ng-if="!user" ng-controller='FormController as formCtrl'>
 
@@ -12,7 +12,7 @@
 		<input type='password' ng-model='password' id='password' placeholder='ENTER YOUR PASSWORD'/><br/>
 		<button ng-click='addUser()'>Signup</button>
 	</form>
-	<a href="/user/login">Already a Wino? Log in here!</a>
+	<a href="/user/login" ng-class="animate swing">Already a Wino? Log in here!</a>
 
 </div>
 <!-- JOHNS USER LOGIN FORM --> 
@@ -27,14 +27,14 @@
 
         <!-- THIS IS THE SIDEBAR -->
         <div id="sidebar">
-           <h3> NOTIFICATIONS</h3>
+           <h3 class="animated flash"> NOTIFICATIONS</h3>
                 <div class="notifications-div" ng-repeat="location in locationCtrl.locations track by $index">
                 <span class="location-name">{{location.name}}</span>
                 <!-- for every wine for this location, display wine, limit: 5? -->
                 <div ng-repeat="wine in location.wine track by $index" class="wine-list" ng-if="wine.onHand <= 1">       
                 <p>{{wine.name}} </p>
                 <br>
-                <p id="on-hand"><strong>{{wine.onHand}} remaining &nbsp; &nbsp;  </strong><a href="{{wine.url}}">Reorder wine</a> </p><br/>
+                <p id="on-hand" class="animated flash"><strong>{{wine.onHand}} remaining &nbsp; &nbsp;  </strong><a href="{{wine.url}}">Reorder wine</a> </p><br/>
                 </div>
                 </div><br/>
         </div>
@@ -55,17 +55,17 @@
 			<div class="locations-div" ng-repeat="location in locationCtrl.locations | filter:searchBox track by $index">
 
                 <!-- THIS IS EACH LOCATIONS DIV -->
-                <div id="each-location-wrapper">
+                <div id="each-location-wrapper" class='animated fadeInUp'>
                     <span class="location-name">{{location.name}}</span>
     				<!-- for every wine for this location, display wine -->
-    				<div ng-repeat="wine in location.wine track by $index" class="wine-list">		
+    				<div ng-repeat="wine in location.wine track by $index" class="wine-list" class='animated fadeInUp'>		
      					
                         <div id="span-wine-name">
                             <span>{{wine.name}} </span>
                         </div>
 
                         <div id="wine-buttons">
-                            <p id="p1">{{wine.onHand}}</p>
+                            <p id="p1" class='animated pulse'>{{wine.onHand}}</p>
 <!--          					<span class="wine-info-span" id="span2" ng-click="locationCtrl.addOneWine($index, location.name)"> + </span>	
                             <span class="wine-info-span" id="span3" ng-click="locationCtrl.minusOneWine($index, location.name)"> - </span>
                             <span class="wine-info-span" id="span4" ng-click="locationCtrl.deleteWine(wine._id, location.name, location._id, $index)"> x </span> -->
@@ -105,7 +105,7 @@
 
 
         <!-- THIS IS THE EDIT LOCATIONS DIV -->
-        <div id="edit-locations-div" ng-if='locationCtrl.showEditDiv'>
+        <div id="edit-locations-div" ng-if='locationCtrl.showEditDiv'  class='animate bounceInDown' >
             <span class="location-name">EDIT LOCATION NAME: </span>
             <input type='text' ng-model='locationCtrl.name' placeholder='EDIT NAME'>
             <button ng-click='locationCtrl.editLocation(index)'>Edit</button>

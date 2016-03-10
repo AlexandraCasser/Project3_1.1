@@ -1,5 +1,5 @@
 <div id="wine-search-wrapper" ng-controller="WineController as wineCtrl">
-		<form ng-submit="wineCtrl.searchWine()">
+		<form ng-submit="wineCtrl.searchWine()"  class='animated fadeInUp'>
 		  <p>Search wine by name:</p>
 		  <input type="text" name="name" placeholder="ie. Sauvignon 2013, Mondavi Merlot, etc" ng-model="wineCtrl.searchdata.input">
 		  <button>Search</button>
@@ -7,12 +7,12 @@
 
 
 	  <ul>
-	  	<li id="wineresults" ng-repeat="wine in wineCtrl.wineResults track by $index">{{wine.Name}}
+	  	<li id="wineresults" ng-repeat="wine in wineCtrl.wineResults track by $index" class='animate bounceInDown'>{{wine.Name}}
 	  		<div class="add-to-location" ng-click="wineCtrl.popUp(wine)">Add To Collection</div>
 	  	</li>
 	  </ul>
 
-	  <div id="choose-locations" ng-if="wineCtrl.showDiv">
+	  <div id="choose-locations" ng-if="wineCtrl.showDiv"  class='animated fadeInUp'>
 	  	<h2>Where would you like to save {{wine.Name}} to?</h2><br/><br/>
 	  	<p ng-repeat="location in wineCtrl.locations" ng-click="wineCtrl.addWine(location._id)">{{location.name}}</p><br/>
 	  	<div class="add-to-location" id="cancel-button" ng-click="wineCtrl.close()">cancel</div>

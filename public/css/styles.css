@@ -202,7 +202,7 @@ main {
     padding: 1em;
     border-radius: 8px;
     position: fixed;
-    top: 34%;
+    top: 13%;
     left: 30%;
 }
 
@@ -297,7 +297,7 @@ main img{
     margin-top: 5px;
     position: absolute;
     right: 0;
-    top: -8px;
+    top: -13px;
 }
 
 .wine-info-span {
