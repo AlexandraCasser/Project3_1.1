@@ -77,6 +77,8 @@ app.controller("WineController", ['$http', '$rootScope', '$location', function($
         }
     })
 
+
+
 }]);
 
 app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
