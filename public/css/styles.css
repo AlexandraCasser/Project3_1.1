@@ -238,56 +238,42 @@ main {
 	color: white;
 	position: absolute;
 	bottom: 10px;
-    width: 100%;
+    width: 47%;
+    margin-left: 24%;
 }
 
-.locations-button {
+.locations-button{
 	display: inline-block;
-	margin: 0 auto;
-	margin-left: 12%;
-	padding: 6px;
-	background: #3D8674;
-	color: white;
-	margin-top: 5px;
-	bottom: 4px;
-  background: #e3a8a8;
-  background-image: -webkit-linear-gradient(top, #e3a8a8, #801A17);
-  background-image: -moz-linear-gradient(top, #e3a8a8, #801A17);
-  background-image: -ms-linear-gradient(top, #e3a8a8, #801A17);
-  background-image: -o-linear-gradient(top, #e3a8a8, #801A17);
-  background-image: linear-gradient(to bottom, #e3a8a8, #801A17);
-  -webkit-border-radius: 16;
-  -moz-border-radius: 16;
-  border-radius: 16px;
-  color: #ffffff;
-  padding: 3px 18px 4px 21px;
-  text-decoration: none;
+	margin-top: 10px;
+	color: black;
+	width: 82px;
+	height: 30px;
+	background: white;
+	border: 1px solid black;
+	text-align: center;
+	text-decoration: none;
+	cursor: pointer;
 }
 
-.locations-button:hover {
-	background: #f0bdbd;
-  background-image: -webkit-linear-gradient(top, #f0bdbd, #cc6677);
-  background-image: -moz-linear-gradient(top, #f0bdbd, #cc6677);
-  background-image: -ms-linear-gradient(top, #f0bdbd, #cc6677);
-  background-image: -o-linear-gradient(top, #f0bdbd, #cc6677);
-  background-image: linear-gradient(to bottom, #f0bdbd, #cc6677);
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.locations-button a{
+.locations-button:hover{
+	background: #B73F40;
 	color: white;
 }
 
 #locations-wrapper .wine-list{
 	border-bottom: 1px dotted grey;
+	position: relative;
+}
+
+#locations-wrapper .wine-list:hover {
+	background: ghostwhite;
 }
 
 #span-wine-name{
 	display: inline-block;
     padding-top: 5px;
     padding-bottom: 5px;
-    width: 60%;
+    width: 54%;
     vertical-align: top;
 }
 
@@ -305,6 +291,9 @@ img {
 	display: inline-block;
     vertical-align: top;
     margin-top: 5px;
+    position: absolute;
+    right: 0;
+    top: -8px;
 }
 
 .wine-info-span {
