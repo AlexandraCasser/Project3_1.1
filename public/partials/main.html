@@ -100,8 +100,12 @@
 
         </div> <!-- ******************* ends location wrapper -->
 
+        <div id="edit-wrapper">
             <!-- THIS IS THE EDIT LOCATIONS DIV -->
-            <div id="edit-locations-div" ng-if='locationCtrl.showEditDiv'>
+            <!-- <div id="edit-locations-div" ng-if='locationCtrl.showEditDiv'> -->
+
+            <div id="choose-locations" ng-if="locationCtrl.showEditDiv">
+
                 <span class="location-name">EDIT LOCATION NAME: </span>
                 <input type='text' ng-model='locationCtrl.name' placeholder='EDIT NAME'>
                 <button ng-click='locationCtrl.editLocation(index)'>Edit</button>
@@ -111,6 +115,7 @@
             <!-- THIS ENDS THE EDIT LOCATIONS DIV -->
 
             <div ng-if="locationCtrl.showDiv" class="modal-bg"></div>
+        </div>
 
 
 
