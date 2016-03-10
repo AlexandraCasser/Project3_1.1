@@ -206,6 +206,20 @@ router.delete('/:id/:location_id', function(req, res) {
     });
 });
 
+//delete user
+router.delete('/:id', function(req, res) {
+    // console.log('Deleted location');
+    User.findByIdAndRemove(req.params.id, function(err, user) {
+        console.log(user);
+        // var locationID = req.params.locat_id;
+        // User.update({}, {$pull: { location : { _id : locationID }}}, {multi : false}, function(err,user){
+        //     console.log(user);
+        //     res.send(user);
+        // })
+        res.send(user);
+    });
+});
+
 //this will delete the wine
 router.delete('/:id/:location_id/:wineid', function(req, res){
     // console.log("DELETE ROUTE ACCESSED");

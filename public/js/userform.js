@@ -75,6 +75,21 @@ app.controller('FormController',['$http', '$scope', '$location', '$rootScope', '
         });
     } //End log out user
 
+    //delete user
+    $rootScope.deleteUser = function(){
+        // console.log("user was deleted");
+        console.log($rootScope.user)
+        var userDeleteID = $rootScope.user._id;
+        $http.delete('/user/' + userDeleteID).then(function(response){
+            console.log(response);
+            $rootScope.user = null;
+        },
+        function(err){
+            console.log(err);
+        });
+
+    }
+
 }]); //END Form Controller
 
 app.directive('userForm', function(){
