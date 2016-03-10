@@ -5,7 +5,7 @@
 
 body {
 	font-family: Arial, sans-serif;
-	height: 100%;
+/*	height: 100%;*/
 	background: url("/images/winebackground.jpg");
 	font-family: 'News Cycle', sans-serif;
 
@@ -18,7 +18,7 @@ main h2 {
     font-family: 'Poiret One', sans-serif;
 }
 
-.modal-bg { 
+/*.modal-bg { 
   background: rgba(0, 0, 0, 0.4)
   position:fixed; 
   top:0; left:0; 
@@ -26,7 +26,7 @@ main h2 {
   height:100%;
   z-index:10; 
 }
-
+*/
 a {
 	text-decoration: none;
 }
@@ -190,7 +190,7 @@ main {
 	min-width: 393px;
 }
 
-/*#edit-locations-div {
+#edit-locations-div {
     display: inline-block;
     box-sizing: border-box;
     margin-left: 1em;
@@ -204,20 +204,13 @@ main {
     position: fixed;
     top: 13%;
     left: 30%;
-}*/
+}
 
-#edit-locations-div{
-    border: solid 1px black;
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    background-color: white;
-/*    z-index: 100;*/
-    padding: 1em;
-    height: 400px;
-/*    margin-top: -200px;
-    margin-left: -300px;*/
-    width: 600px;
+#edit-wrapper{
+    width: 100%;
+    height: 100%;
+
+/*    transform: translate3d(0,0,0)*/
 }
 
 
@@ -475,6 +468,13 @@ button:hover{
 
 /*for devices 480px and smaller*/
 @media (max-width: 480px) {
+/*@media (max-width: 320px) {*/
+	.user-sign-in a {
+		font-size: 1em;
+	}
+	h1{
+		font-size: 3em;
+	}
 	#sidebar {
 		display: block;
 		width: 100%;
@@ -487,7 +487,8 @@ button:hover{
 	}
 	.locations-div{
 		margin-bottom: 20px;
-		width: 100%;
+		margin-left: 0px;
+		min-width: 297px;
 
 	}
 	#choose-locations{
@@ -495,6 +496,18 @@ button:hover{
 	}
 	#location-buttons{
 		margin: 0 auto;
+	}
+	form{
+		margin-top: -79px;
+		width: 80%;
+	}
+	input {
+	    font-size: 39px;
+	    width: 100%;
+	    height: 50px;
+	}
+	#searchbar{
+		margin-left: 0;
 	}
 }
 
