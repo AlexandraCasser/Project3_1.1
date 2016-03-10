@@ -65,10 +65,10 @@
                         </div>
 
                         <div id="wine-buttons">
-                            <span class="wine-info-span">{{wine.onHand}}</span>
-         					<span class="wine-info-span" ng-click="locationCtrl.addOneWine($index, location.name)"> + </span>	
-                            <span class="wine-info-span" ng-click="locationCtrl.minusOneWine($index, location.name)"> - </span>
-                            <span class="wine-info-span" ng-click="locationCtrl.deleteWine(wine._id, location.name, location._id, $index)"> x </span>
+                            <span class="wine-info-span" id="span1">{{wine.onHand}}</span>
+         					<span class="wine-info-span" id="span2" ng-click="locationCtrl.addOneWine($index, location.name)"> + </span>	
+                            <span class="wine-info-span" id="span3" ng-click="locationCtrl.minusOneWine($index, location.name)"> - </span>
+                            <span class="wine-info-span" id="span4" ng-click="locationCtrl.deleteWine(wine._id, location.name, location._id, $index)"> x </span>
                         </div>
      				</div>
                 </div>

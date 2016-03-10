@@ -279,7 +279,7 @@ main {
 	color: white;
 }
 
-.wine-list{
+#locations-wrapper .wine-list{
 	border-bottom: 1px dotted grey;
 }
 
@@ -305,6 +305,7 @@ main {
     border: 1px solid black;
     font-weight: bold;
     padding: 2px 11px;
+    cursor: pointer;
 }
 
 .wine-info-span:hover {
@@ -473,6 +474,9 @@ button{
 	}
 	#choose-locations{
 		top: 3%;
+	}
+	#location-buttons{
+		margin: 0 auto;
 	}
 }
 
