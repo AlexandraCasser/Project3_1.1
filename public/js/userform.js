@@ -99,12 +99,7 @@ app.directive('loginForm', function(){
 app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
     $locationProvider.html5Mode({ enabled: true});
     $routeProvider
-    // .when('/' + req.user.id , {
-    //     templateUrl: 'partials/main.html',
-    //     controller: 'FormController', 
-    //     controllerAs: 'formCtrl'
-    // })
-.when('/user/login', {
+    .when('/user/login', {
         templateUrl: 'partials/userloginform.html',
         controller: 'FormController', 
         controllerAs: 'formCtrl'
@@ -112,3 +107,10 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
         redirectTo: '/'
     });
 }]);
+
+///
+    // .when('/' + req.user.id , {
+    //     templateUrl: 'partials/main.html',
+    //     controller: 'FormController', 
+    //     controllerAs: 'formCtrl'
+    // })
