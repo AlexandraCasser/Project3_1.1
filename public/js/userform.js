@@ -82,6 +82,7 @@ app.controller('FormController',['$http', '$scope', '$location', '$rootScope', '
         var userDeleteID = $rootScope.user._id;
         $http.delete('/user/' + userDeleteID).then(function(response){
             console.log(response);
+            alert('Yuh hilarious');
             $rootScope.user = null;
         },
         function(err){
@@ -114,11 +115,11 @@ app.directive('loginForm', function(){
 app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
     $locationProvider.html5Mode({ enabled: true});
     $routeProvider
-    // .when('/' + req.user.id , {
-    //     templateUrl: 'partials/main.html',
-    //     controller: 'FormController', 
-    //     controllerAs: 'formCtrl'
-    // })
+    .when('/delete', {
+        templateUrl: 'partials/delete.html',
+        controller: 'FormController', 
+        controllerAs: 'formCtrl'
+    })
 .when('/user/login', {
         templateUrl: 'partials/userloginform.html',
         controller: 'FormController', 
